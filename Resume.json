@@ -1,0 +1,183 @@
+{
+  "basics": {
+    "name": "Abdur Rehman Khan",
+    "shortName": "ARK",
+    "label": "Cybersecurity Student",
+    "headline": "Cybersecurity Student | Aspiring SOC Analyst & Penetration Tester",
+    "summary": "Cybersecurity student in Karachi with hands-on experience in Linux environments and vulnerability assessment. Proficient with Wireshark, Burp Suite, Nmap, and John the Ripper through CTF participation and security lab practice, backed by strong coding fundamentals in C/C++, OOP, and DSA. Seeking an internship to build practical expertise in SOC operations, penetration testing, and red teaming.",
+    "location": {
+      "country": "Pakistan",
+      "countryCode": "PK",
+      "region": "Karachi"
+    },
+    "email": "donabdurrehman12@gmail.com",
+    "phone": "0310-0104905",
+    "availability": "Currently seeking an internship in SOC operations, penetration testing, or red teaming.",
+    "leadershipNote": "Turning hands-on security practice — CTFs, vulnerability labs, and independent projects — into a SOC, penetration testing, or red teaming internship.",
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "Abdur Rehman Khan",
+        "url": "https://www.linkedin.com/in/abdur-rehman-khan-4b4baa328/",
+        "icon": "fa-brands fa-linkedin-in"
+      },
+      {
+        "network": "GitHub",
+        "username": "abdurrehman7259",
+        "url": "https://github.com/abdurrehman7259",
+        "icon": "fa-brands fa-github"
+      }
+    ]
+  },
+  "about": {
+    "intro": [
+      "I'm a Cybersecurity student in Karachi with hands-on exposure beyond the classroom — practicing vulnerability discovery and exploitation with tools like Burp Suite, Nmap, Wireshark, and John the Ripper, and competing in university CTF competitions covering cryptography and encryption/decryption challenges.",
+      "I'm looking to turn that foundation into an internship in SOC operations, penetration testing, or red teaming, where I can keep building practical skills alongside experienced security teams."
+    ],
+    "strengths": [
+      "C/C++, Python, and Bash scripting",
+      "Hands-on with Burp Suite, Nmap, Wireshark, and John the Ripper",
+      "Vulnerability assessment and exploitation against practice targets (Metasploitable)",
+      "CTF competitor — cryptography and encryption/decryption challenges",
+      "Competitive programmer — Coders Cup (algorithms, debugging under time pressure)"
+    ],
+    "leadershipPillars": [
+      {
+        "title": "Foundation",
+        "description": "Strong grounding in C/C++, OOP, and data structures — the fundamentals security work builds on."
+      },
+      {
+        "title": "Practice",
+        "description": "Hands-on with vulnerability labs, CTFs, and tools like Burp Suite, Nmap, and Wireshark."
+      },
+      {
+        "title": "Direction",
+        "description": "Working toward an internship in SOC operations, penetration testing, or red teaming."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "Cybersecurity",
+        "label": "Bachelor's degree focus"
+      },
+      {
+        "value": "2",
+        "label": "Certificates earned (NED Academy, Aptech)"
+      },
+      {
+        "value": "Internship",
+        "label": "Actively seeking — SOC, Pentesting, Red Teaming"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "category": "Security Tools",
+      "items": ["Burp Suite", "Nmap", "Wireshark", "John the Ripper", "Kali Linux", "Metasploitable"]
+    },
+    {
+      "category": "Programming",
+      "items": ["C", "C++", "Python", "Bash Scripting"]
+    },
+    {
+      "category": "Cybersecurity Concepts",
+      "items": ["Vulnerability Assessment", "Cryptography", "Encryption/Decryption", "Active Directory"]
+    },
+    {
+      "category": "Core CS Fundamentals",
+      "items": ["Data Structures & Algorithms", "Object-Oriented Programming", "Linux"]
+    }
+  ],
+  "work": [],
+  "projects": [
+    {
+      "title": "Client-Server Keylogging & Network Scanning System",
+      "description": "Built a Windows keylogger in C++ with Python socket-based server communication, auto-start via batch scripting, file transfer over sockets, Nmap-based IP discovery, and simulated RDP access control.",
+      "outcome": "Combined offensive security concepts (keylogging, network reconnaissance) with systems programming in a single client-server tool.",
+      "stack": ["C++", "Python", "Sockets", "Nmap", "Batch Scripting"],
+      "liveUrl": "",
+      "codeUrl": "[Add link to this repo]"
+    },
+    {
+      "title": "Security Labs & CTF Practice",
+      "description": "Hands-on vulnerability discovery and exploitation using Burp Suite, Nmap, Wireshark, and John the Ripper against intentionally vulnerable targets like Metasploitable, plus university CTF competitions covering cryptography and encryption/decryption challenges using Kali Linux.",
+      "outcome": "Built practical, tool-based experience in vulnerability scanning, exploitation, and cryptographic challenges outside the classroom.",
+      "stack": ["Burp Suite", "Nmap", "Wireshark", "John the Ripper", "Kali Linux", "Metasploitable"],
+      "liveUrl": "",
+      "codeUrl": ""
+    },
+    {
+      "title": "Tangoline — E-Commerce Website",
+      "description": "Developed a responsive e-commerce website for computer equipment and gaming products, with product comparison and detailed specifications.",
+      "outcome": "Won Best Project of the Month at Aptech and qualified for Aptech Vision.",
+      "stack": ["HTML", "CSS", "JavaScript", "jQuery"],
+      "liveUrl": "",
+      "codeUrl": "[Add link if available]"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Cybersecurity & Ethical Hacking",
+      "issuer": "NED Academy",
+      "url": "",
+      "imageId": "",
+      "imageName": ""
+    },
+    {
+      "name": "Web Development",
+      "issuer": "Aptech Learning",
+      "url": "",
+      "imageId": "",
+      "imageName": ""
+    }
+  ],
+  "education": [
+    {
+      "institution": "GU-Tech",
+      "area": "Computer Science",
+      "studyType": "Bachelor of Science (BS) — Continuing",
+      "detailsLabel": "Focus Areas",
+      "details": [
+        "Transferred here after completing two years of a Cybersecurity degree at FAST-NUCES",
+        "Cybersecurity (intended specialization)",
+        "Computer Networks",
+        "Operating Systems"
+      ],
+      "startDate": "2026-09-01",
+      "endDate": ""
+    },
+    {
+      "institution": "FAST-NUCES",
+      "area": "Cybersecurity",
+      "studyType": "Bachelor of Science (BS) — First two years completed",
+      "detailsLabel": "Coursework Focus",
+      "details": [
+        "Cybersecurity Fundamentals",
+        "Data Structures & Algorithms",
+        "Object-Oriented Programming",
+        "Networking"
+      ],
+      "startDate": "2023-08-01",
+      "endDate": "2025-09-01"
+    },
+    {
+      "institution": "Govt. Delhi College",
+      "area": "Pre-Engineering",
+      "studyType": "FSc",
+      "detailsLabel": "Level",
+      "details": ["Higher Secondary / Intermediate"],
+      "startDate": "2021-01-01",
+      "endDate": "2023-01-01"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Fluent"
+    },
+    {
+      "language": "Urdu",
+      "fluency": "Native"
+    }
+  ]
+}
