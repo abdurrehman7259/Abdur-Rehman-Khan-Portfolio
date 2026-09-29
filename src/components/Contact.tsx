@@ -71,7 +71,7 @@ export function Contact({ basics }: ContactProps) {
                 </h3>
                 <p className="text-base text-cyber-muted leading-relaxed">
                   {basics.availability} I am actively seeking an internship in
-                  SOC operations, penetration testing, or red teaming. Reach out
+                  SOC operations, log analysis, and threat monitoring. Reach out
                   to discuss opportunities or collaborate on security projects.
                 </p>
               </div>
@@ -151,13 +151,15 @@ export function Contact({ basics }: ContactProps) {
                 </p>
               </div>
 
-              <a
-                href={`mailto:${basics.email}?subject=Internship%20Opportunity%20-%20Abdur%20Rehman%20Khan`}
-                className="w-full inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-cyber-accent text-cyber-bg font-mono font-bold text-sm hover:bg-cyber-accentHover hover:shadow-[0_0_25px_rgba(0,242,255,0.4)] transition-all duration-300 transform hover:-translate-y-0.5"
-              >
-                <Send className="w-4 h-4" />
-                <span>Send Email Directly</span>
-              </a>
+                <a
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=${basics?.email || "donabdurrehman12@gmail.com"}&su=SOC%20Internship%20Opportunity%20-%20Abdur%20Rehman%20Khan`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-cyber-accent text-cyber-bg font-mono font-bold text-sm hover:bg-cyber-accentHover hover:shadow-[0_0_25px_rgba(0,242,255,0.4)] transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>Send Email Directly</span>
+                </a>
 
               {/* Social Profiles Grid */}
               <div className="flex items-center gap-4 pt-2">
