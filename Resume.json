@@ -3,8 +3,8 @@
     "name": "Abdur Rehman Khan",
     "shortName": "ARK",
     "label": "Cybersecurity Student",
-    "headline": "Cybersecurity Student | Aspiring SOC Analyst & Penetration Tester",
-    "summary": "Cybersecurity student in Karachi with hands-on experience in Linux environments and vulnerability assessment. Proficient with Wireshark, Burp Suite, Nmap, and John the Ripper through CTF participation and security lab practice, backed by strong coding fundamentals in C/C++, OOP, and DSA. Seeking an internship to build practical expertise in SOC operations, penetration testing, and red teaming.",
+    "headline": "Cybersecurity Student",
+    "summary": "Cybersecurity student with hands-on experience in Linux environments, vulnerability assessment and university CTFs, including cryptography challenges. I have a strong coding foundation in C/C++, OOP and data structures and algorithms, and I've built projects of my own, including a client-server system in C++ and Python. I'm seeking an internship in security operations where I can apply these skills and grow within a professional team.",
     "location": {
       "country": "Pakistan",
       "countryCode": "PK",
@@ -86,10 +86,22 @@
     {
       "category": "Core CS Fundamentals",
       "items": ["Data Structures & Algorithms", "Object-Oriented Programming", "Linux"]
+    },
+    {
+      "category": "Web & Portfolio Stack",
+      "items": ["Next.js", "React", "TypeScript", "Tailwind CSS"]
     }
   ],
   "work": [],
   "projects": [
+    {
+      "title": "ARK.SEC — Modern Cybersecurity Portfolio",
+      "description": "Designed and built a high-performance, responsive cybersecurity portfolio and interactive terminal showcase featuring real-time skill search, active scrollspy navigation, and custom cyber aesthetics.",
+      "outcome": "Architected with Next.js 15 App Router, TypeScript, and Tailwind CSS with sub-second page loads and zero layout shift.",
+      "stack": ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+      "liveUrl": "https://github.com/abdurrehman7259",
+      "codeUrl": "https://github.com/abdurrehman7259"
+    },
     {
       "title": "Client-Server Keylogging & Network Scanning System",
       "description": "Built a Windows keylogger in C++ with Python socket-based server communication, auto-start via batch scripting, file transfer over sockets, Nmap-based IP discovery, and simulated RDP access control.",
