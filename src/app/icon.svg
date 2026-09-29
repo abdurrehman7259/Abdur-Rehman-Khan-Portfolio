@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="8" fill="#0a0b10" />
+  <path d="M16 4 L26 8 V16 C26 22 16 28 16 28 C16 28 6 22 6 16 V8 Z" fill="none" stroke="#00f2ff" stroke-width="2" stroke-linejoin="round" />
+  <text x="16" y="19" font-family="monospace" font-size="9" font-weight="bold" fill="#00f2ff" text-anchor="middle">ARK</text>
+</svg>
