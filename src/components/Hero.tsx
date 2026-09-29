@@ -113,9 +113,11 @@ export function Hero({ basics }: HeroProps) {
                 ))}
 
                 <a
-                  href={`mailto:${basics.email}`}
-                  className="w-9 h-9 rounded-lg bg-cyber-card border border-cyber-border flex items-center justify-center text-cyber-muted hover:text-cyber-accent hover:border-cyber-accent transition-all duration-200 hover:shadow-[0_0_12px_rgba(0,242,255,0.3)]"
-                  title="Email"
+                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=${basics?.email || "donabdurrehman12@gmail.com"}&su=SOC%20Internship%20Opportunity%20-%20Abdur%20Rehman%20Khan`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg bg-cyber-card border border-cyber-border flex items-center justify-center text-cyber-muted hover:text-cyber-accent hover:border-cyber-accent transition-all duration-200 hover:shadow-[0_0_12px_rgba(0,242,255,0.3)] cursor-pointer"
+                  title="Send Email"
                   aria-label="Send Email"
                 >
                   <Mail className="w-4 h-4" />
