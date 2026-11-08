@@ -111,6 +111,10 @@ export function Navbar() {
               })}
             </ul>
 
+            <Link href="/blog" className="text-sm font-medium text-cyber-muted transition-colors hover:text-cyber-accent">
+              Blog
+            </Link>
+
             <div className="h-4 w-[1px] bg-cyber-border" />
 
             {/* Quick Action Button */}
@@ -162,6 +166,11 @@ export function Navbar() {
                 </button>
               </li>
             ))}
+            <li>
+              <Link href="/blog" className="block py-2 text-base font-medium text-cyber-text hover:text-cyber-accent">
+                Blog
+              </Link>
+            </li>
             <li className="pt-2 border-t border-cyber-border">
               <a
                 href="#contact"

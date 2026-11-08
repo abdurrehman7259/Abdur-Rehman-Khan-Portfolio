@@ -93,3 +93,19 @@ npm run lint
 
 ## 🛡️ License & Copyright
 © 2024–Present ARK.SEC | Abdur Rehman Khan. All rights reserved.
+
+## Blog (Firebase)
+
+Admin-only blog built with Firebase Auth + Firestore. Visitors read posts at `/blog`; only the admin can log in at `/admin/login` to create, edit, publish or delete posts.
+
+Features: Markdown editor with live preview, toolbar, YouTube embeds (paste a YouTube link on its own line), images, code syntax highlighting, tags, search, cover image, draft/publish, reading time.
+
+### Setup
+1. Create a Firebase project. Enable **Authentication > Email/Password** and add one user (the admin).
+2. Create a **Firestore** database (production mode).
+3. Add a Web app (Project settings > Your apps) and copy its config into `.env.local` (see `.env.example`). Set `NEXT_PUBLIC_ADMIN_EMAIL` to the admin email.
+4. Copy the admin user's UID (Authentication > Users) into `firestore.rules` (replace `REPLACE_WITH_ADMIN_UID`) and paste the rules in Firestore > Rules > Publish.
+5. `npm run dev`, then visit `/admin/login`.
+
+### Deploy (Vercel)
+Add the same `NEXT_PUBLIC_*` variables under Project > Settings > Environment Variables, then redeploy. Also add your Vercel domain to Firebase Authentication > Settings > Authorized domains.
