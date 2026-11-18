@@ -35,7 +35,11 @@ export default function Home() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {/* "<" is escaped so no value can ever close the script tag early. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       <Navbar name={basics.name} />
       <main id="main" tabIndex={-1} className="focus:outline-none">
         <Hero basics={basics} stats={portfolioData.stats} />

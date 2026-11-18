@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { signOut } from "firebase/auth";
-import { Eye, LogOut, Pencil, Plus, Trash2 } from "lucide-react";
+import { Download, Eye, LogOut, Pencil, Plus, Trash2 } from "lucide-react";
 import { auth } from "@/lib/firebase";
 import { deletePost, formatDate, getAllPosts, type Post } from "@/lib/posts";
 import { AdminGuard } from "@/components/blog/AdminGuard";
@@ -17,6 +17,25 @@ function Dashboard() {
     getAllPosts().then(setPosts).catch((e) => setError(e.message));
   }, []);
   useEffect(load, [load]);
+
+  /**
+   * Saves every post (drafts included) as JSON. The sha256 field is a checksum of the "posts" array as
+   * written, so a later check can tell whether the backup was changed or damaged.
+   */
+  async function downloadBackup() {
+    if (!posts) return;
+    const body = JSON.stringify(posts);
+    const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(body));
+    const sha256 = Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("");
+    const exportedAt = new Date().toISOString();
+    const file = `{"format":"portfolio-blog-backup/1","exportedAt":"${exportedAt}","count":${posts.length},"sha256":"${sha256}","posts":${body}}\n`;
+    const url = URL.createObjectURL(new Blob([file], { type: "application/json" }));
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `blog-backup-${exportedAt.slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
 
   async function remove(p: Post) {
     if (!confirm(`Delete "${p.title}"? This cannot be undone.`)) return;
@@ -34,8 +53,16 @@ function Dashboard() {
         <h1 className="text-2xl font-bold text-ink">Dashboard</h1>
         <div className="flex gap-3">
           <Link href="/admin/editor/new" className="inline-flex items-center gap-1.5 rounded-lg bg-cyber-accent px-4 py-2 font-mono text-sm font-semibold text-cyber-bg hover:bg-cyber-accentHover">
-            <Plus className="h-4 w-4" /> New post
+            <Plus className="h-4 w-4" aria-hidden="true" /> New post
           </Link>
+          <button
+            type="button"
+            onClick={downloadBackup}
+            disabled={!posts}
+            className="inline-flex items-center gap-1.5 rounded-lg border border-cyber-border px-4 py-2 text-sm text-cyber-muted hover:border-cyber-accent hover:text-cyber-accent disabled:opacity-50"
+          >
+            <Download className="h-4 w-4" aria-hidden="true" /> Download backup
+          </button>
           <button onClick={() => signOut(auth)} className="inline-flex items-center gap-1.5 rounded-lg border border-cyber-border px-4 py-2 text-sm text-cyber-muted hover:border-cyber-red hover:text-cyber-red">
             <LogOut className="h-4 w-4" /> Sign out
           </button>
@@ -61,14 +88,17 @@ function Dashboard() {
                 </p>
               </div>
               <div className="flex gap-2">
-                <Link href={`/blog/${p.slug}`} className="rounded border border-cyber-border p-2 text-cyber-muted hover:text-cyber-accent" aria-label="View">
-                  <Eye className="h-4 w-4" />
+                {/* Public pages show published posts only; preview drafts in the editor. */}
+                {p.published && (
+                  <Link href={`/blog/${p.slug}`} className="rounded border border-cyber-border p-2 text-cyber-muted hover:text-cyber-accent" aria-label={`View "${p.title}" on the blog`}>
+                    <Eye className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                )}
+                <Link href={`/admin/editor/${p.slug}`} className="rounded border border-cyber-border p-2 text-cyber-muted hover:text-cyber-accent" aria-label={`Edit "${p.title}"`}>
+                  <Pencil className="h-4 w-4" aria-hidden="true" />
                 </Link>
-                <Link href={`/admin/editor/${p.slug}`} className="rounded border border-cyber-border p-2 text-cyber-muted hover:text-cyber-accent" aria-label="Edit">
-                  <Pencil className="h-4 w-4" />
-                </Link>
-                <button onClick={() => remove(p)} className="rounded border border-cyber-border p-2 text-cyber-muted hover:text-cyber-red" aria-label="Delete">
-                  <Trash2 className="h-4 w-4" />
+                <button type="button" onClick={() => remove(p)} className="rounded border border-cyber-border p-2 text-cyber-muted hover:text-cyber-red" aria-label={`Delete "${p.title}"`}>
+                  <Trash2 className="h-4 w-4" aria-hidden="true" />
                 </button>
               </div>
             </li>
