@@ -221,7 +221,7 @@ export const portfolioData = {
       ],
       stack: ["JavaScript", "PWA", "Service worker", "Supabase Auth"],
       liveUrl: "https://unsak.vercel.app",
-      linkNote: "Private repository",
+      codeUrl: "https://github.com/abdurrehman7259/Unsak",
     },
     {
       title: "This portfolio",

@@ -89,6 +89,8 @@ npm start          # start production server
 npm run lint       # lint check
 ```
 
-## Copyright
+## License
 
-© Abdur Rehman Khan. All rights reserved.
+The code is MIT-licensed: see [LICENSE](LICENSE).
+
+The personal content is not covered by that licence and stays © Abdur Rehman Khan, all rights reserved: the profile text in `src/data/portfolio.js` and `Resume.json`, the certificate images in `public/certificates/`, the blog posts and the photos. Please do not reuse it as your own portfolio.
