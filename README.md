@@ -51,12 +51,14 @@ To change the text on the site, edit `src/data/portfolio.ts`.
 
 Visitors read posts at `/blog`. Only the admin can sign in at `/admin/login` to create, edit, publish or delete posts.
 
+**Privacy by design:** the public blog pages are rendered on the server (`src/lib/posts-public.ts`, Firestore REST API, refreshed every 60 s). Visitors' browsers never load Firebase, so no cookies or browser storage are set and visitor IPs are not sent to Google. Photos from `images.unsplash.com` and `firebasestorage.googleapis.com` go through Next.js image optimisation and are served from this domain; images from any other host are shown as links (`src/components/blog/BlogImage.tsx`, keep its list in sync with `next.config.mjs`). YouTube embeds load only after Play.
+
 Blog features: Markdown editor with live preview, YouTube embeds (a YouTube link on its own line), images, code highlighting, tables, tags, search and tag filters, cover images, drafts, reading-time estimate and a copy-link button.
 
 | Route | Access | Purpose |
 |---|---|---|
-| `/blog` | Public | Published posts with search and tag filters |
-| `/blog/[slug]` | Public | Single post (drafts visible to the admin only) |
+| `/blog` | Public | Published posts with search and tag filters (server-rendered) |
+| `/blog/[slug]` | Public | Single published post (server-rendered); preview drafts in the editor |
 | `/admin/login` | Public | Admin sign-in (Firebase email/password) |
 | `/admin` | Admin | Dashboard: view, edit, delete posts |
 | `/admin/editor/[id]` | Admin | Markdown editor with live preview (`new` to create) |

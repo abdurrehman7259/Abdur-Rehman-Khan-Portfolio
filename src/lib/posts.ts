@@ -68,11 +68,7 @@ export function calcReadingTime(markdown: string): number {
   return Math.max(1, Math.round(words / 200));
 }
 
-/** Public: published posts only (matches the Firestore rule). */
-export async function getPublishedPosts(): Promise<Post[]> {
-  const snap = await getDocs(query(collection(db, COL), where("published", "==", true)));
-  return snap.docs.map((d) => fromDoc(d.id, d.data())).sort(byNewest);
-}
+// Public pages read published posts on the server instead: see src/lib/posts-public.ts.
 
 /** Admin: all posts including drafts. */
 export async function getAllPosts(): Promise<Post[]> {

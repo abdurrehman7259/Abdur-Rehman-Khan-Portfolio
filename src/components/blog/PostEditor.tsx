@@ -158,6 +158,10 @@ export function PostEditor({ id }: { id: string }) {
           Save as draft
         </button>
       </div>
+      <p className="text-xs text-cyber-muted">
+        Published changes appear on the public blog within about a minute. Images from other hosts than Unsplash or
+        Firebase Storage are shown to visitors as links, not loaded.
+      </p>
     </div>
   );
 }

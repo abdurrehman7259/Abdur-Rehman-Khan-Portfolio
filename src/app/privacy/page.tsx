@@ -11,7 +11,11 @@ export const metadata: Metadata = {
 const sections = [
   {
     title: "No tracking",
-    body: "This site uses no analytics, advertising, tracking pixels or tracking cookies. Fonts are served from this site, not from Google Fonts.",
+    body: "This site uses no analytics, advertising or tracking pixels. Fonts are served from this site, not from Google Fonts.",
+  },
+  {
+    title: "Cookies and browser storage",
+    body: "This site sets no cookies and stores nothing in your browser. That is why there is no cookie banner. (The private admin area, used only by me, keeps my own sign-in in my browser.)",
   },
   {
     title: "Hosting",
@@ -19,7 +23,7 @@ const sections = [
   },
   {
     title: "Blog",
-    body: "Blog posts are stored in Google Firebase (Cloud Firestore). When you open the blog, your browser loads the posts from Firebase, which receives your IP address. Some posts show images hosted on other websites; those sites also receive your IP address when the image loads.",
+    body: "Blog posts are stored in Google Firebase (Cloud Firestore), but this site's server reads them and sends you finished pages. Your browser does not contact Firebase or Google. Photos from Unsplash or Firebase Storage are also fetched by this site's server and served from this site. An image from any other website is shown as a link and loads only if you open it.",
   },
   {
     title: "Videos",
@@ -41,7 +45,7 @@ export default function PrivacyPage() {
         <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
           <p className="eyebrow">Privacy</p>
           <h1 className="section-title mt-3">What this site loads and collects.</h1>
-          <p className="section-lead">Short version: nothing is tracked, and nothing loads from Google unless you open the blog or press Play on a video.</p>
+          <p className="section-lead">Short version: nothing is tracked, nothing is stored in your browser, and your browser contacts only this site unless you press Play on a video or open an outside link.</p>
 
           <div className="mt-10 space-y-4">
             {sections.map((s) => (

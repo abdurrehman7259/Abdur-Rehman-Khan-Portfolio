@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github.css";
+import { BlogImage } from "./BlogImage";
 
 export function getYouTubeId(url: string): string | null {
   const m = url.match(
@@ -86,6 +87,14 @@ export function Markdown({ content }: { content: string }) {
             const id = soleYouTubeId(children);
             return id ? <YouTube id={id} /> : <p>{children}</p>;
           },
+          // Code blocks can scroll sideways on phones, so keyboard users must be able to focus them.
+          pre({ children }) {
+            return (
+              <pre tabIndex={0} role="region" aria-label="Code example">
+                {children}
+              </pre>
+            );
+          },
           a({ href, children }) {
             const external = href?.startsWith("http");
             return (
@@ -97,8 +106,8 @@ export function Markdown({ content }: { content: string }) {
               </a>
             );
           },
-          // eslint-disable-next-line @next/next/no-img-element
-          img: ({ src, alt }) => <img src={typeof src === "string" ? src : ""} alt={alt ?? ""} loading="lazy" />,
+          // Served through our own image service, or shown as a link for hosts not on the allowlist.
+          img: ({ src, alt }) => (typeof src === "string" && src ? <BlogImage src={src} alt={alt ?? ""} /> : null),
         }}
       >
         {content}
