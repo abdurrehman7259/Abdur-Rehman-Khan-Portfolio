@@ -3,7 +3,7 @@
     "name": "Abdur Rehman Khan",
     "label": "Computer Science Student · Agentic Software Development",
     "headline": "I build real products with AI agents, organised like a small engineering team.",
-    "summary": "Computer Science student in Karachi who builds software with agentic AI workflows: requirements and user stories, agents and sub-agents, skills, hooks and model routing, gated delivery pipelines, and full-stack TypeScript, React, Next.js, Node.js and PostgreSQL, with security and privacy built in.",
+    "summary": "Computer Science student in Karachi who builds software with agentic AI workflows: requirements and user stories, agents and sub-agents, skills, hooks and model routing, gated delivery pipelines, and full-stack JavaScript, React, Next.js, Node.js and PostgreSQL, with security and privacy built in.",
     "email": "donabdurrehman12@gmail.com",
     "location": {
       "region": "Karachi",
@@ -44,7 +44,7 @@
     "strengths": [
       "Agentic workflows: agents, sub-agents, skills, hooks and model routing",
       "Spec-driven delivery: requirements, user stories, sprints, gates and a Definition of Done",
-      "Full-stack web development with TypeScript, React, Next.js, Node.js and PostgreSQL",
+      "Full-stack web development with JavaScript, React, Next.js, Node.js and PostgreSQL",
       "Security and privacy by design: server-side access rules, security headers and OWASP checks"
     ]
   },
@@ -78,9 +78,9 @@
       "items": [
         "React",
         "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
         "JavaScript",
+        "Tailwind CSS",
+        "HTML & CSS",
         "PWA"
       ]
     },
@@ -98,7 +98,6 @@
     {
       "category": "Languages",
       "items": [
-        "TypeScript",
         "JavaScript",
         "Python",
         "C++",
@@ -159,9 +158,9 @@
         "Ran the build as a gated pipeline: file ownership per agent, written task briefs, four time-boxed gates, a usability sprint from playtests and a security audit with every finding fixed"
       ],
       "stack": [
+        "Next.js",
         "React",
-        "TypeScript",
-        "Vite",
+        "JavaScript",
         "Zod",
         "NASA DONKI API",
         "Serverless functions"
@@ -203,12 +202,38 @@
       ],
       "stack": [
         "Next.js",
-        "TypeScript",
+        "React",
+        "JavaScript",
         "Tailwind CSS",
         "Firebase"
       ],
       "liveUrl": "https://abdur-rehman-khan-portfolio.vercel.app",
       "codeUrl": "https://github.com/abdurrehman7259/Abdur-Rehman-Khan-Portfolio"
+    },
+    {
+      "title": "Tangoline",
+      "context": "Aptech Learning · Web Designing project",
+      "status": "Award",
+      "summary": "A responsive e-commerce website for computer equipment and gaming products, where shoppers browse the catalogue, compare products side by side and read detailed specifications.",
+      "role": "Designed and built it as my web design project at Aptech. It was recognised as the outstanding Web Designing project of the month (January 2022).",
+      "points": [
+        "Product catalogue for computer equipment and gaming gear",
+        "Side-by-side product comparison",
+        "Detailed specifications for every product",
+        "Responsive layout for phones, tablets and desktops"
+      ],
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "jQuery"
+      ],
+      "award": {
+        "name": "Web Designing project of the month",
+        "kind": "Certificate of Appreciation for outstanding performance in the Web Designing project (Tangoline)",
+        "issuer": "Aptech Learning, North Nazimabad Center",
+        "date": "January 2022"
+      }
     }
   ],
   "education": [
@@ -226,12 +251,22 @@
   ],
   "certificates": [
     {
-      "name": "Cybersecurity & Ethical Hacking",
-      "issuer": "NED Academy"
+      "name": "Cyber Security & Ethical Hacking",
+      "kind": "Certificate of Competence · 2-month certification programme",
+      "issuer": "NED Academy · PITP, Government of Sindh",
+      "date": "Jan – Mar 2026"
     },
     {
-      "name": "Web Development",
-      "issuer": "Aptech Learning"
+      "name": "Coders Cup 2024 · Finalist",
+      "kind": "ACM interuniversity speed programming competition. Team Jalaibee qualified for the final round.",
+      "issuer": "ACM NUCES Karachi",
+      "date": "2024"
+    },
+    {
+      "name": "Web Designing project of the month",
+      "kind": "Certificate of Appreciation for outstanding performance in the Web Designing project (Tangoline)",
+      "issuer": "Aptech Learning, North Nazimabad Center",
+      "date": "January 2022"
     }
   ],
   "languages": [

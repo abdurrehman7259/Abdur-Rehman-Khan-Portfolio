@@ -7,7 +7,7 @@ const firebaseAuthDomain = process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
  * Content-Security-Policy. Visitors' pages only ever talk to this site. The Google endpoints in
  * connect-src are used by the private admin area (Firebase sign-in and Firestore writes).
  * 'unsafe-inline' for scripts is required by Next.js's inline hydration scripts without per-request
- * nonces; external scripts are still blocked, and the app never renders raw HTML (see Markdown.tsx).
+ * nonces; external scripts are still blocked, and the app never renders raw HTML (see Markdown.jsx).
  */
 const csp = [
   "default-src 'self'",
@@ -42,7 +42,7 @@ const nextConfig = {
   images: {
     // Blog photos are fetched by this site's server and served from our own domain, so visitors'
     // browsers never contact these hosts. Only these hosts are allowed, so the image service cannot be
-    // used to proxy arbitrary URLs. Keep in sync with IMAGE_HOSTS in src/components/blog/BlogImage.tsx.
+    // used to proxy arbitrary URLs. Keep in sync with IMAGE_HOSTS in src/components/blog/BlogImage.jsx.
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
       { protocol: "https", hostname: "firebasestorage.googleapis.com", pathname: "/**" },
