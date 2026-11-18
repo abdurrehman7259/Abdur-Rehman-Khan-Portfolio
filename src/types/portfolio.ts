@@ -18,7 +18,6 @@ export interface Basics {
   focusTags: string[];
   location: { region: string; country: string };
   email: string;
-  phone: string;
   availability: string;
   profiles: SocialProfile[];
 }
@@ -67,14 +66,6 @@ export interface Project {
   linkNote?: string;
 }
 
-export interface EarlierWork {
-  title: string;
-  description: string;
-  stack: string[];
-  liveUrl?: string;
-  codeUrl?: string;
-}
-
 export interface EducationItem {
   degree: string;
   institution: string;
@@ -100,7 +91,6 @@ export interface PortfolioData {
   skills: SkillGroup[];
   process: ProcessStep[];
   projects: Project[];
-  earlierWork: EarlierWork[];
   education: EducationItem[];
   certificates: Certificate[];
   languages: Language[];

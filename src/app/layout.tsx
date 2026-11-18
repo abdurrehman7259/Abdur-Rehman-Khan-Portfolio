@@ -18,7 +18,7 @@ const sora = Sora({
 const siteUrl = "https://abdur-rehman-khan-portfolio.vercel.app";
 const title = "Abdur Rehman Khan | Agentic Software Development | Karachi, Pakistan";
 const description =
-  "Computer Science student in Karachi who builds real products with AI agents: agent sub-agents and skills, a second coding agent, user stories and gated delivery, with full-stack TypeScript, React, Next.js, Node.js and PostgreSQL.";
+  "Computer Science student in Karachi who builds real products with agentic AI workflows: requirements, user stories, agents and sub-agents, gated delivery pipelines and security by design, with full-stack TypeScript, React, Next.js, Node.js and PostgreSQL.";
 
 export const metadata: Metadata = {
   title,
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   keywords: [
     "Abdur Rehman Khan",
     "Agentic AI",
-    "the coding agent",
-    "a second coding agent",
+    "Generative AI",
+    "AI coding agents",
     "Multi-agent development",
     "Software engineering",
     "Next.js",

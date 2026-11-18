@@ -7,8 +7,8 @@ export function Writing() {
     <Section
       id="writing"
       eyebrow="Writing"
-      title="Notes from what I build and learn."
-      lead="Short posts on agentic development, the projects above, and security practice."
+      title="How I build software, from requirements to release."
+      lead="Posts on my end-to-end workflow: requirement gathering, user stories, agentic workflows, CI pipelines, Docker, and security built into every step."
     >
       <Link
         href="/blog"

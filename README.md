@@ -1,6 +1,6 @@
 # Abdur Rehman Khan — Portfolio
 
-Personal portfolio and blog. It presents my projects (Moon Base Cadets, Unsak) and how I build software with AI agents: agent sub-agents, skills and hooks, a second coding agent, user stories and gated delivery.
+Personal portfolio and blog. It presents my projects (Moon Base Cadets, Unsak and this site) and how I build software with agentic AI workflows: requirements, user stories, agents and sub-agents, gated delivery pipelines, and security and privacy by design.
 
 **Live site:** https://abdur-rehman-khan-portfolio.vercel.app
 **Blog:** https://abdur-rehman-khan-portfolio.vercel.app/blog

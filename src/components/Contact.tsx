@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import type { Basics } from "@/types/portfolio";
 import { Section } from "./Section";
 
@@ -8,7 +8,6 @@ export function Contact({ basics }: { basics: Basics }) {
 
   const rows = [
     { icon: Mail, label: "Email", value: basics.email, href: `mailto:${basics.email}` },
-    { icon: Phone, label: "Phone", value: basics.phone, href: `tel:+92${basics.phone.replace(/^0|-/g, "")}` },
     linkedin && { icon: Linkedin, label: "LinkedIn", value: linkedin.username, href: linkedin.url },
     github && { icon: Github, label: "GitHub", value: github.username, href: github.url },
   ].filter(Boolean) as { icon: typeof Mail; label: string; value: string; href: string }[];

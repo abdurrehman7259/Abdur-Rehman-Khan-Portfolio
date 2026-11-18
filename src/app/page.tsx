@@ -45,7 +45,7 @@ export default function Home() {
         <Hero basics={basics} stats={portfolioData.stats} />
         <About about={portfolioData.about} />
         <Skills skills={portfolioData.skills} />
-        <Projects projects={portfolioData.projects} earlierWork={portfolioData.earlierWork} />
+        <Projects projects={portfolioData.projects} />
         <Process steps={portfolioData.process} />
         <Education
           education={portfolioData.education}

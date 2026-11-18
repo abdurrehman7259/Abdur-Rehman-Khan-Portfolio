@@ -6,7 +6,8 @@ import { fetchPublishedPosts, isBlogConfigured, type PublicPost } from "@/lib/po
 
 export const metadata: Metadata = {
   title: "Blog | Abdur Rehman Khan",
-  description: "Write-ups, CTF notes and security learnings by Abdur Rehman Khan.",
+  description:
+    "How Abdur Rehman Khan builds software end to end: requirements, user stories, agentic workflows, pipelines and security.",
 };
 
 // Rendered on the server and refreshed at most every 60 seconds (POSTS_REVALIDATE_SECONDS).
@@ -25,7 +26,9 @@ export default async function BlogPage() {
       <BlogHeader />
       <main id="main" tabIndex={-1} className="focus:outline-none mx-auto max-w-5xl px-4 py-12 sm:px-6">
         <h1 className="text-3xl font-bold text-ink sm:text-4xl">The Blog</h1>
-        <p className="mt-2 text-muted">Write-ups, CTF notes and security learnings.</p>
+        <p className="mt-2 text-muted">
+          How I build software end to end: requirements, user stories, agentic workflows, pipelines and security.
+        </p>
         {!isBlogConfigured ? (
           <div className="mt-10">
             <SetupNotice />

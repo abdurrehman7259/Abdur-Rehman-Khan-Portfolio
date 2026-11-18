@@ -7,15 +7,14 @@ export const portfolioData: PortfolioData = {
     role: "Computer Science Student · Agentic Software Development",
     headline: "I build real products with AI agents, organised like a small engineering team.",
     intro:
-      "Computer Science student in Karachi. I write the specs and user stories, then direct AI coding agents through planning, building, review, testing and security checks.",
+      "Computer Science student in Karachi. I gather the requirements, write the user stories, and run AI coding agents through a pipeline of planning, building, review, testing and security checks.",
     current:
       "Recent work: a NASA Space Apps game built on real solar-storm data, and Unsak, a live offline-first app for students.",
     summary:
-      "Computer Science student in Karachi who builds software with AI agents: agent sub-agents, skills and hooks, a second coding agent, user stories, gated delivery pipelines, and full-stack TypeScript, React, Next.js, Node.js and PostgreSQL.",
+      "Computer Science student in Karachi who builds software with agentic AI workflows: requirements and user stories, agents and sub-agents, skills, hooks and model routing, gated delivery pipelines, and full-stack TypeScript, React, Next.js, Node.js and PostgreSQL, with security and privacy built in.",
     focusTags: ["Multi-agent workflows", "Spec-driven delivery", "Full-stack TypeScript"],
     location: { region: "Karachi", country: "Pakistan" },
     email: "donabdurrehman12@gmail.com",
-    phone: "0310-0104905",
     availability: "Open to conversations about software and agentic AI.",
     profiles: [
       {
@@ -41,17 +40,17 @@ export const portfolioData: PortfolioData = {
     heading: "Engineering discipline, applied to AI-built software.",
     lead: "AI agents write code quickly. My job is to make that code planned, reviewed and tested.",
     paragraphs: [
-      "I started in cybersecurity, with lab work and CTFs, and moved toward building software. Most of my work now is agentic development: AI coding agents with clear roles, files they own, written task briefs, and checks they must pass before anything merges.",
-      "I have used this setup on a NASA Space Apps hackathon game, a live student well-being app and this portfolio.",
+      "I build software the way a small engineering team does. Requirements come first, then user stories, then an agent workflow where each agent has a clear role, owns specific files, works from a written brief, and must pass checks before anything merges.",
+      "Security and privacy are part of that pipeline, not an afterthought: access rules on the server, security headers, privacy pages that match what the code really does, and accessibility checks on every page.",
     ],
     pillars: [
       {
         title: "Plan",
-        description: "Specs, user stories with IDs and a decision log, written before any code.",
+        description: "Requirements, user stories with IDs and a decision log, written before any code.",
       },
       {
         title: "Orchestrate",
-        description: "Agents with set roles, sub-agents, skills, and the right model for each task.",
+        description: "Agents with set roles, sub-agents, skills, hooks, and the right model for each task.",
       },
       {
         title: "Verify",
@@ -60,10 +59,10 @@ export const portfolioData: PortfolioData = {
     ],
     bringsTitle: "What I bring to a team",
     brings: [
-      "Multi-agent setups with coding agents (sub-agents, skills, hooks)",
-      "Spec-driven delivery: user stories, sprints, gates and a Definition of Done",
+      "Agentic workflows: agents, sub-agents, skills, hooks and model routing",
+      "Spec-driven delivery: requirements, user stories, sprints, gates and a Definition of Done",
       "Full-stack web development with TypeScript, React, Next.js, Node.js and PostgreSQL",
-      "A security mindset from lab work, CTFs and OWASP reviews",
+      "Security and privacy by design: server-side access rules, security headers and OWASP checks",
     ],
     quote: "AI makes code fast. Process makes it trustworthy.",
   },
@@ -72,22 +71,24 @@ export const portfolioData: PortfolioData = {
     {
       category: "Agentic AI",
       items: [
-        "the coding agent",
+        "AI coding agents",
+        "Multi-agent orchestration",
         "Sub-agents",
         "Skills & hooks",
-        "a second coding agent",
-        "Multi-agent orchestration",
         "Model & effort routing",
+        "Generative AI",
       ],
     },
     {
       category: "Process",
       items: [
+        "Requirement gathering",
         "User stories",
         "Sprints & gates",
         "Spec docs & ADRs",
         "Definition of Done",
         "Code review",
+        "CI pipelines",
         "Git & GitHub",
       ],
     },
@@ -105,26 +106,26 @@ export const portfolioData: PortfolioData = {
     },
     {
       category: "Security",
-      items: ["OWASP Top 10", "Burp Suite", "Nmap", "Wireshark", "Kali Linux"],
+      items: ["OWASP Top 10", "Security headers & CSP", "Access rules & RLS", "Dependency audits", "Burp Suite", "Nmap", "Wireshark"],
     },
   ],
 
   process: [
     {
       title: "Specify",
-      description: "Product spec, requirements and user stories with IDs. Every decision goes in a log.",
+      description: "Requirements, product spec and user stories with IDs. Every decision goes in a log.",
     },
     {
       title: "Plan",
-      description: "The tech-lead agent splits a story into parts, each with an owner and a list of files.",
+      description: "A planning agent splits each story into parts, each with an owner and a list of files.",
     },
     {
       title: "Build",
-      description: "builder agent and other builder agents work from written briefs, only in the files they own.",
+      description: "Builder agents work from written briefs, only in the files they own.",
     },
     {
       title: "Review",
-      description: "lead agent reviews every diff. Rejected work goes back with a written fix brief.",
+      description: "Every change is reviewed against the story and the standards. Rejected work goes back with a fix brief.",
     },
     {
       title: "Test & audit",
@@ -143,12 +144,12 @@ export const portfolioData: PortfolioData = {
       status: "Hackathon",
       summary:
         "A browser game for children aged 7–12. Players run a Moon or Mars base for 10 days while real solar flares and storms from NASA's DONKI records hit it.",
-      role: "Product owner and game designer in a three-person team. the coding agent was tech lead and frontend engineer; builder agent was backend engineer.",
+      role: "Product owner, game designer and pitch lead in a three-person team. I defined the game rules, the data rules and the pipeline that built it.",
       points: [
-        "Written file ownership per agent, task briefs and result files for every backend job",
-        "Four time-boxed gates across the hackathon weekend, tracked on a task board",
-        "Every science fact links to a NASA source; game rules are labelled as game rules",
-        "No accounts, cookies or tracking, because the players are children",
+        "Designed the core mechanic: share 10 power units a day across life support, shields and science while real solar events hit the base",
+        "Used real NASA flare and storm records; archived data is labelled, and every science fact links to its NASA source",
+        "Child-safe from day one: no accounts, cookies or tracking, and live NASA data fetched through our own server so no player's IP reaches a third party",
+        "Ran the build as a gated pipeline: file ownership per agent, written task briefs, four time-boxed gates, a usability sprint from playtests and a security audit with every finding fixed",
       ],
       stack: ["React", "TypeScript", "Vite", "Zod", "NASA DONKI API", "Serverless functions"],
       linkNote: "Private repository",
@@ -159,40 +160,33 @@ export const portfolioData: PortfolioData = {
       status: "Live",
       summary:
         "A mobile-first app that helps students build better phone habits: a 30-day challenge, a bedtime wind-down, a scam-message check and people to talk to.",
-      role: "Started as a Design Thinking course project with user interviews and journey maps. lead agent wrote the module contract and builder agent built the modules in parallel.",
+      role: "Solo project, from user research to launch. I ran the Design Thinking research, wrote the requirements and module contract, and set up the pipeline that built and tested it.",
       points: [
-        "Sign-in with Google or a 6-digit email code",
-        "Personal data stays on the device, with export in Settings",
-        "Works offline and installs to the home screen",
+        "Features came from user interviews and journey maps, not guesses",
+        "Privacy by design: personal data stays on the phone, with data export and account deletion that only ever acts on the user's own account",
+        "Privacy and terms page written from what the code really does, with automated tests that fail if the two drift apart",
+        "Security headers, a strict content policy and 170+ automated tests; works offline and installs to the home screen",
       ],
       stack: ["JavaScript", "PWA", "Service worker", "Supabase Auth"],
       liveUrl: "https://unsak.vercel.app",
       linkNote: "Private repository",
     },
-  ],
-
-  earlierWork: [
     {
       title: "This portfolio",
-      description: "Personal site with an admin-only blog.",
+      context: "Personal site and blog",
+      status: "Live",
+      summary:
+        "The site you are reading, built to the same launch checklist I use for every project: privacy, security and accessibility checked before release.",
+      role: "Designed and built end to end, including the private admin area for the blog.",
+      points: [
+        "Blog pages are rendered on the server, so visitors' browsers never load Firebase: no cookies, no browser storage, nothing sent to Google",
+        "Security headers and a content policy on every route; framework kept patched against known vulnerabilities",
+        "Zero automated accessibility violations (WCAG 2.1 AA) on every page, at desktop and phone size",
+        "Verified backups: the blog exports with a SHA-256 checksum and a script that checks it",
+      ],
       stack: ["Next.js", "TypeScript", "Tailwind CSS", "Firebase"],
       liveUrl: "https://abdur-rehman-khan-portfolio.vercel.app",
       codeUrl: "https://github.com/abdurrehman7259/Abdur-Rehman-Khan-Portfolio",
-    },
-    {
-      title: "Tangoline",
-      description: "E-commerce site for computer and gaming products. Best Project of the Month at Aptech.",
-      stack: ["HTML", "CSS", "JavaScript", "jQuery"],
-    },
-    {
-      title: "Client-server system",
-      description: "TCP socket communication between a C++ client and a Python server.",
-      stack: ["C++", "Python", "Sockets"],
-    },
-    {
-      title: "Security labs and CTFs",
-      description: "Vulnerability assessment on practice targets and university CTF cryptography challenges.",
-      stack: ["Burp Suite", "Nmap", "Wireshark", "Kali Linux"],
     },
   ],
 
@@ -203,13 +197,6 @@ export const portfolioData: PortfolioData = {
       period: "2026 – Present",
       detailsLabel: "Focus areas",
       details: ["Computer Networks", "Operating Systems", "Cybersecurity"],
-    },
-    {
-      degree: "FSc, Pre-Engineering",
-      institution: "Govt. Delhi College",
-      period: "2021 – 2023",
-      detailsLabel: "Level",
-      details: ["Higher Secondary"],
     },
   ],
 

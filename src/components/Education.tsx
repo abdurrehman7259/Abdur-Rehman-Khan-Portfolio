@@ -10,7 +10,7 @@ interface EducationProps {
 export function Education({ education, certificates, languages }: EducationProps) {
   return (
     <Section id="education" eyebrow="Education" title="Academic foundation and credentials.">
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className={`grid gap-4 ${education.length > 1 ? "lg:grid-cols-2" : ""}`}>
         {education.map((item) => (
           <div key={item.institution} className="card p-6 sm:p-7">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">{item.period}</p>
