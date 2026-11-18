@@ -1,134 +1,59 @@
-"use client";
+import { ArrowRight, MapPin } from "lucide-react";
+import type { Basics, Stat } from "@/types/portfolio";
 
-import { Basics } from "@/types/portfolio";
-import { CyberOrb } from "./CyberOrb";
-import {
-  Linkedin,
-  Github,
-  Mail,
-  MapPin,
-  ArrowRight,
-  ShieldCheck,
-  FileCode2,
-} from "lucide-react";
-
-interface HeroProps {
-  basics: Basics;
-}
-
-export function Hero({ basics }: HeroProps) {
-  const handleScrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const yOffset = -80;
-      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
-  };
-
+export function Hero({ basics, stats }: { basics: Basics; stats: Stat[] }) {
   return (
-    <section
-      id="hero"
-      className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-16 lg:py-28 overflow-hidden cyber-radial-glow"
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Content */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
-            {/* Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyber-card border border-cyber-accent/40 shadow-[0_0_15px_rgba(0,242,255,0.15)] mb-6">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-green opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyber-green" />
-              </span>
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-cyber-accent">
-                {basics.availability}
-              </span>
-            </div>
-
-            {/* Name */}
-            <h1 className="font-mono text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-3">
-              Abdur Rehman{" "}
-              <span className="text-cyber-accent inline-block drop-shadow-[0_0_20px_rgba(0,242,255,0.4)]">
-                Khan
-              </span>
-            </h1>
-
-            {/* Headline / Role */}
-            <div className="flex flex-wrap items-center gap-2 mb-6 text-lg sm:text-xl font-medium text-cyber-muted font-mono">
-              <span>{basics.headline}</span>
-              <span className="text-cyber-border hidden sm:inline">•</span>
-              <span className="inline-flex items-center gap-1 text-sm text-cyber-muted/80">
-                <MapPin className="w-4 h-4 text-cyber-accent" />
-                {basics.location.region}, {basics.location.country}
-              </span>
-            </div>
-
-            {/* Summary description */}
-            <p className="text-base sm:text-lg text-cyber-muted leading-relaxed max-w-2xl mb-8">
-              {basics.summary}
-            </p>
-
-            {/* Actions */}
-            <div className="flex flex-wrap items-center gap-4 mb-8 w-full sm:w-auto">
-              <button
-                onClick={() => handleScrollTo("contact")}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg bg-cyber-accent text-cyber-bg font-mono font-bold text-sm tracking-wide hover:bg-cyber-accentHover hover:shadow-[0_0_25px_rgba(0,242,255,0.45)] transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none"
+    <section aria-labelledby="hero-title" className="pt-6 sm:pt-10">
+      <div className="mx-auto max-w-page px-4 sm:px-6 lg:px-8">
+        <div className="card p-6 sm:p-10 lg:p-14">
+          <div className="grid gap-12 lg:grid-cols-[1.35fr_1fr] lg:gap-14">
+            <div>
+              <p className="eyebrow">{basics.role}</p>
+              <h1
+                id="hero-title"
+                className="mt-5 font-display text-[1.85rem] font-semibold leading-[1.12] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]"
               >
-                <span>Hire Me</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+                {basics.headline}
+              </h1>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-body sm:text-lg">{basics.intro}</p>
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">{basics.current}</p>
 
-              <button
-                onClick={() => handleScrollTo("projects")}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg bg-cyber-card border border-cyber-border text-cyber-text font-mono font-medium text-sm hover:border-cyber-accent hover:text-cyber-accent transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none"
-              >
-                <FileCode2 className="w-4 h-4" />
-                <span>View Work</span>
-              </button>
-            </div>
-
-            {/* Social Links & Quick Contact */}
-            <div className="flex items-center gap-5 pt-4 border-t border-cyber-border/70 w-full">
-              <span className="font-mono text-xs text-cyber-muted uppercase tracking-wider">
-                Connect:
-              </span>
-              <div className="flex items-center gap-3">
-                {basics.profiles.map((profile) => (
-                  <a
-                    key={profile.network}
-                    href={profile.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-lg bg-cyber-card border border-cyber-border flex items-center justify-center text-cyber-muted hover:text-cyber-accent hover:border-cyber-accent transition-all duration-200 hover:shadow-[0_0_12px_rgba(0,242,255,0.3)]"
-                    title={profile.network}
-                    aria-label={profile.network}
-                  >
-                    {profile.network === "LinkedIn" ? (
-                      <Linkedin className="w-4 h-4" />
-                    ) : (
-                      <Github className="w-4 h-4" />
-                    )}
-                  </a>
+              <ul className="mt-7 flex flex-wrap gap-2.5" aria-label="Focus areas">
+                {basics.focusTags.map((tag) => (
+                  <li key={tag} className="chip font-medium text-ink">
+                    {tag}
+                  </li>
                 ))}
+              </ul>
 
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
-                  href={`https://mail.google.com/mail/?view=cm&fs=1&to=${basics?.email || "donabdurrehman12@gmail.com"}&su=SOC%20Internship%20Opportunity%20-%20Abdur%20Rehman%20Khan`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg bg-cyber-card border border-cyber-border flex items-center justify-center text-cyber-muted hover:text-cyber-accent hover:border-cyber-accent transition-all duration-200 hover:shadow-[0_0_12px_rgba(0,242,255,0.3)] cursor-pointer"
-                  title="Send Email"
-                  aria-label="Send Email"
+                  href="#projects"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-ink px-6 text-sm font-semibold text-white transition-colors hover:bg-accent-strong"
                 >
-                  <Mail className="w-4 h-4" />
+                  See my projects <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </a>
+                <a
+                  href="#contact"
+                  className="inline-flex h-12 items-center justify-center rounded-lg border border-line bg-surface px-6 text-sm font-semibold text-ink transition-colors hover:border-ink"
+                >
+                  Contact me
+                </a>
+                <span className="inline-flex items-center gap-1.5 text-sm text-muted sm:ml-3">
+                  <MapPin className="h-4 w-4" aria-hidden="true" />
+                  {basics.location.region}, {basics.location.country}
+                </span>
               </div>
             </div>
-          </div>
 
-          {/* Right Column: High-tech Visual Cyber Orb */}
-          <div className="lg:col-span-5 flex items-center justify-center">
-            <CyberOrb />
+            <ul className="grid grid-cols-1 gap-3 self-center sm:grid-cols-3 lg:grid-cols-1" aria-label="Highlights">
+              {stats.map((stat) => (
+                <li key={stat.label} className="rounded-xl border border-line bg-paper/60 px-5 py-4">
+                  <p className="font-display text-2xl font-semibold text-ink">{stat.value}</p>
+                  <p className="mt-1 text-sm text-muted">{stat.label}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

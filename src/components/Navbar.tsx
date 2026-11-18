@@ -2,189 +2,101 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, X, ShieldAlert, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
-interface NavItem {
-  name: string;
-  href: string;
-}
-
-const navItems: NavItem[] = [
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Education", href: "#education" },
-  { name: "Contact", href: "#contact" },
+const navItems = [
+  { name: "About", href: "/#about" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Process", href: "/#process" },
+  { name: "Education", href: "/#education" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact", href: "/#contact" },
 ];
 
-export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("");
+export function Logo({ name, compact = false }: { name: string; compact?: boolean }) {
+  return (
+    <Link href="/" className="flex items-center gap-3">
+      <span
+        aria-hidden="true"
+        className="flex h-9 w-9 items-center justify-center rounded-md bg-ink font-display text-[11px] font-bold tracking-wide text-white"
+      >
+        ARK
+      </span>
+      <span className={`font-display text-[15px] font-semibold text-ink ${compact ? "hidden sm:inline" : ""}`}>
+        {name}
+      </span>
+      {compact && <span className="sr-only sm:hidden">{name}</span>}
+    </Link>
+  );
+}
+
+export function Navbar({ name }: { name: string }) {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-
-      // Simple active section detection
-      const sections = navItems.map((item) => item.href.substring(1));
-      const scrollPosition = window.scrollY + 120;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
-        if (el && el.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
-    setMobileMenuOpen(false);
-    const targetId = href.substring(1);
-    const element = document.getElementById(targetId);
-    if (element) {
-      const yOffset = -80;
-      const y =
-        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
-  };
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-cyber-surface/85 backdrop-blur-md border-b border-cyber-border py-3 shadow-lg shadow-black/40"
-          : "bg-transparent py-5"
+      className={`sticky top-0 z-50 border-b transition-colors ${
+        scrolled || open ? "border-line bg-surface/90 backdrop-blur" : "border-transparent bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <nav className="flex items-center justify-between" aria-label="Main Navigation">
-          {/* Logo */}
-          <Link
-            href="#"
-            className="flex items-center gap-2 group focus:outline-none"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          >
-            <div className="w-8 h-8 rounded-md bg-cyber-card border border-cyber-accent/30 flex items-center justify-center text-cyber-accent group-hover:border-cyber-accent transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(0,242,255,0.4)]">
-              <ShieldAlert className="w-4 h-4" />
-            </div>
-            <span className="font-mono text-lg font-bold tracking-tight text-white">
-              <span className="text-cyber-accent">ARK</span>
-              <span className="text-cyber-muted group-hover:text-white transition-colors">
-                .SEC
-              </span>
-            </span>
-          </Link>
+      <nav
+        aria-label="Main"
+        className="mx-auto flex h-16 max-w-page items-center justify-between px-4 sm:px-6 lg:px-8"
+      >
+        <Logo name={name} />
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            <ul className="flex items-center gap-6 list-none m-0 p-0">
-              {navItems.map((item) => {
-                const isActive = activeSection === item.href.substring(1);
-                return (
-                  <li key={item.name}>
-                    <button
-                      onClick={() => handleNavClick(item.href)}
-                      className={`text-sm font-medium transition-all duration-200 relative py-1 hover:text-cyber-accent focus:outline-none ${
-                        isActive
-                          ? "text-cyber-accent font-semibold"
-                          : "text-cyber-muted"
-                      }`}
-                    >
-                      {item.name}
-                      {isActive && (
-                        <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-cyber-accent shadow-[0_0_8px_#00f2ff] rounded-full" />
-                      )}
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-
-            <Link href="/blog" className="text-sm font-medium text-cyber-muted transition-colors hover:text-cyber-accent">
-              Blog
-            </Link>
-
-            <div className="h-4 w-[1px] bg-cyber-border" />
-
-            {/* Quick Action Button */}
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick("#contact");
-              }}
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-mono font-semibold rounded border border-cyber-accent/50 text-cyber-accent bg-cyber-accent/5 hover:bg-cyber-accent hover:text-cyber-bg transition-all duration-200 shadow-sm hover:shadow-[0_0_15px_rgba(0,242,255,0.35)]"
-            >
-              <span>Get In Touch</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
-
-          {/* Mobile Hamburger Button */}
-          <div className="flex md:hidden items-center">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-md text-cyber-muted hover:text-white hover:bg-cyber-card transition-colors focus:outline-none"
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileMenuOpen}
-            >
-              {mobileMenuOpen ? (
-                <X className="w-6 h-6 text-cyber-accent" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-        </nav>
-      </div>
-
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-cyber-surface/95 backdrop-blur-xl border-b border-cyber-border px-6 py-6 shadow-2xl animate-in slide-in-from-top duration-200">
-          <ul className="flex flex-col gap-4 list-none m-0 p-0">
-            {navItems.map((item) => (
-              <li key={item.name}>
-                <button
-                  onClick={() => handleNavClick(item.href)}
-                  className="w-full text-left py-2 text-base font-medium text-cyber-text hover:text-cyber-accent transition-colors flex items-center justify-between"
-                >
-                  <span>{item.name}</span>
-                  <span className="font-mono text-xs text-cyber-muted">
-                    #_
-                  </span>
-                </button>
-              </li>
-            ))}
-            <li>
-              <Link href="/blog" className="block py-2 text-base font-medium text-cyber-text hover:text-cyber-accent">
-                Blog
+        <ul className="hidden items-center gap-7 lg:flex">
+          {navItems.map((item) => (
+            <li key={item.name}>
+              <Link href={item.href} className="text-sm text-body transition-colors hover:text-accent">
+                {item.name}
               </Link>
             </li>
-            <li className="pt-2 border-t border-cyber-border">
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick("#contact");
-                }}
-                className="w-full text-center py-2.5 px-4 rounded bg-cyber-accent text-cyber-bg font-mono font-semibold text-sm block"
+          ))}
+        </ul>
+
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="-mr-2 flex h-11 w-11 items-center justify-center rounded-md text-ink lg:hidden"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+        >
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
+      </nav>
+
+      {open && (
+        <ul id="mobile-menu" className="border-t border-line bg-surface px-4 pb-4 pt-2 sm:px-6 lg:hidden">
+          {navItems.map((item) => (
+            <li key={item.name}>
+              <Link
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="block rounded-md px-2 py-3 text-base text-ink hover:bg-paper"
               >
-                Hire Me / Contact
-              </a>
+                {item.name}
+              </Link>
             </li>
-          </ul>
-        </div>
+          ))}
+        </ul>
       )}
     </header>
   );

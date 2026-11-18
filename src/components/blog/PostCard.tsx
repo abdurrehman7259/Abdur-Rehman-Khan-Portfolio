@@ -6,7 +6,7 @@ export function PostCard({ post }: { post: Post }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="glass-panel group flex flex-col overflow-hidden rounded-xl transition hover:-translate-y-1 hover:shadow-cyber-glow-sm"
+      className="glass-panel group flex flex-col overflow-hidden rounded-xl transition hover:-translate-y-1"
     >
       {post.coverImage ? (
         // eslint-disable-next-line @next/next/no-img-element
@@ -24,7 +24,7 @@ export function PostCard({ post }: { post: Post }) {
             </span>
           ))}
         </div>
-        <h2 className="text-lg font-semibold text-white transition group-hover:text-cyber-accent">{post.title}</h2>
+        <h2 className="text-lg font-semibold text-ink transition group-hover:text-cyber-accent">{post.title}</h2>
         <p className="line-clamp-3 flex-1 text-sm text-cyber-muted">{post.excerpt}</p>
         <div className="flex items-center gap-3 font-mono text-xs text-cyber-muted">
           <span>{formatDate(post.createdAt)}</span>

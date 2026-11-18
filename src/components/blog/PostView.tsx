@@ -27,7 +27,7 @@ export function PostView({ slug }: { slug: string }) {
   if (post === null)
     return (
       <div className="text-center">
-        <h1 className="text-2xl font-bold text-white">Post not found</h1>
+        <h1 className="text-2xl font-bold text-ink">Post not found</h1>
         <Link href="/blog" className="mt-4 inline-block text-cyber-accent hover:underline">
           Back to blog
         </Link>
@@ -44,7 +44,7 @@ export function PostView({ slug }: { slug: string }) {
           DRAFT - only visible to you
         </p>
       )}
-      <h1 className="text-3xl font-bold leading-tight text-white sm:text-4xl">{post.title}</h1>
+      <h1 className="text-3xl font-bold leading-tight text-ink sm:text-4xl">{post.title}</h1>
       <div className="mt-4 flex flex-wrap items-center gap-4 font-mono text-xs text-cyber-muted">
         <span>{formatDate(post.createdAt)}</span>
         <span className="inline-flex items-center gap-1">

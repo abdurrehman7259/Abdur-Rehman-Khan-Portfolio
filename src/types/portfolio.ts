@@ -1,78 +1,91 @@
 export interface SocialProfile {
-  network: string;
+  network: "LinkedIn" | "GitHub";
   username: string;
   url: string;
-  icon: string;
-}
-
-export interface LocationInfo {
-  country: string;
-  countryCode: string;
-  region: string;
 }
 
 export interface Basics {
   name: string;
   shortName: string;
-  label: string;
+  /** Small label above the hero heading. */
+  role: string;
+  /** One sentence: what I do and why it matters. */
   headline: string;
+  intro: string;
+  current: string;
+  /** Plain summary for search engines and structured data. */
   summary: string;
-  location: LocationInfo;
+  focusTags: string[];
+  location: { region: string; country: string };
   email: string;
   phone: string;
   availability: string;
-  leadershipNote: string;
   profiles: SocialProfile[];
+}
+
+export interface Stat {
+  value: string;
+  label: string;
 }
 
 export interface Pillar {
   title: string;
   description: string;
-  icon: string;
-}
-
-export interface Metric {
-  value: string;
-  label: string;
 }
 
 export interface About {
-  intro: string[];
-  strengths: string[];
-  leadershipPillars: Pillar[];
-  metrics: Metric[];
+  heading: string;
+  lead: string;
+  paragraphs: string[];
+  pillars: Pillar[];
+  bringsTitle: string;
+  brings: string[];
+  quote: string;
 }
 
-export interface SkillCategory {
+export interface SkillGroup {
   category: string;
-  description?: string;
   items: string[];
+}
+
+export interface ProcessStep {
+  title: string;
+  description: string;
 }
 
 export interface Project {
   title: string;
+  context: string;
+  status: string;
+  summary: string;
+  role: string;
+  points: string[];
+  stack: string[];
+  liveUrl?: string;
+  codeUrl?: string;
+  /** Shown when there is no public link. */
+  linkNote?: string;
+}
+
+export interface EarlierWork {
+  title: string;
   description: string;
-  outcome: string;
   stack: string[];
   liveUrl?: string;
   codeUrl?: string;
 }
 
 export interface EducationItem {
+  degree: string;
   institution: string;
-  area: string;
-  studyType: string;
   period: string;
   detailsLabel: string;
   details: string[];
-  startDate?: string;
-  endDate?: string;
 }
 
 export interface Certificate {
   name: string;
   issuer: string;
-  url?: string;
 }
 
 export interface Language {
@@ -82,10 +95,13 @@ export interface Language {
 
 export interface PortfolioData {
   basics: Basics;
+  stats: Stat[];
   about: About;
-  skills: SkillCategory[];
+  skills: SkillGroup[];
+  process: ProcessStep[];
   projects: Project[];
-  certificates: Certificate[];
+  earlierWork: EarlierWork[];
   education: EducationItem[];
+  certificates: Certificate[];
   languages: Language[];
 }

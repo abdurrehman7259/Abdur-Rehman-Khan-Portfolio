@@ -3,114 +3,70 @@
 @tailwind utilities;
 
 :root {
-  --bg-primary: #0a0b10;
-  --bg-secondary: #0f111a;
-  --bg-card: #121624;
-  --accent: #00f2ff;
-  --accent-glow: rgba(0, 242, 255, 0.35);
-  --text-main: #e6edf3;
-  --text-dim: #8b949e;
+  /* RGB triplets so Tailwind opacity modifiers work (e.g. bg-surface/80). */
+  --paper: 242 246 248;
+  --surface: 255 255 255;
+  --line: 220 229 234;
+  --ink: 14 27 36;
+  --body: 52 66 76;
+  --muted: 98 113 123;
+  --accent: 13 115 112;
+  --accent-strong: 9 88 86;
+  --accent-soft: 226 242 240;
+  --ok: 21 128 61;
+  --danger: 180 35 24;
+  --warn: 161 98 7;
 }
 
 html {
+  color-scheme: light;
   scroll-behavior: smooth;
-  color-scheme: dark;
+  scroll-padding-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-main);
+  background-color: rgb(var(--paper));
+  background-image: linear-gradient(180deg, rgb(229 239 242) 0, rgb(var(--paper)) 34rem);
+  background-repeat: no-repeat;
+  color: rgb(var(--body));
   overflow-x: hidden;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
-/* Custom Cyber Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+::selection {
+  background: rgb(var(--accent) / 0.18);
+  color: rgb(var(--ink));
 }
 
-::-webkit-scrollbar-track {
-  background: #0a0b10;
+:focus-visible {
+  outline: 2px solid rgb(var(--accent));
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #1f273d;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #00f2ff;
-  box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
-}
-
-/* Cyber Matrix / Grid Background */
-.cyber-grid-bg {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-}
-
-.cyber-radial-glow {
-  background: radial-gradient(circle at 50% 20%, rgba(0, 242, 255, 0.08) 0%, transparent 60%);
-}
-
-/* Accent Glow Text */
-.accent-glow {
-  color: #00f2ff;
-  text-shadow: 0 0 16px rgba(0, 242, 255, 0.45);
-}
-
-/* Subtle glassmorphism */
-.glass-panel {
-  background: rgba(15, 17, 26, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-.glass-panel:hover {
-  border-color: rgba(0, 242, 255, 0.25);
-}
-
-/* Custom animations */
-@keyframes cyber-pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.7;
+@layer components {
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-accent;
   }
-  50% {
-    transform: scale(1.06);
-    opacity: 1;
-  }
-}
 
-.animate-cyber-pulse {
-  animation: cyber-pulse 4s ease-in-out infinite;
-}
-
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
+  .section-title {
+    @apply font-display text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
-}
-
-@keyframes reverse-spin-slow {
-  from {
-    transform: rotate(360deg);
+  .section-lead {
+    @apply mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg;
   }
-  to {
-    transform: rotate(0deg);
-  }
-}
 
-.animate-reverse-spin-slow {
-  animation: reverse-spin-slow 25s linear infinite;
+  .card {
+    @apply rounded-2xl border border-line bg-surface shadow-card;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-line bg-paper px-3 py-1 text-sm text-body;
+  }
 }

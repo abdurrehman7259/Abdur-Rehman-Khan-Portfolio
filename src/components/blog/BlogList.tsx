@@ -40,7 +40,7 @@ export function BlogList() {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Search posts..."
-          className="w-full rounded-lg border border-cyber-border bg-cyber-card py-2 pl-9 pr-3 text-sm text-white outline-none focus:border-cyber-accent"
+          className="w-full rounded-lg border border-cyber-border bg-cyber-card py-2 pl-9 pr-3 text-sm text-ink focus:border-cyber-accent"
         />
       </div>
       {tags.length > 0 && (

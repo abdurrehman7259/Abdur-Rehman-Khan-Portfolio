@@ -1,177 +1,119 @@
-"use client";
+import { ArrowUpRight, Github, Lock } from "lucide-react";
+import type { EarlierWork, Project } from "@/types/portfolio";
+import { Section } from "./Section";
 
-import { Project } from "@/types/portfolio";
-import {
-  FolderGit2,
-  ExternalLink,
-  Github,
-  Trophy,
-  ShieldAlert,
-  Terminal,
-  Flame,
-  Globe,
-} from "lucide-react";
-
-interface ProjectsProps {
-  projects: Project[];
+function ExternalLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent hover:text-accent-strong"
+    >
+      {children}
+    </a>
+  );
 }
 
-export function Projects({ projects }: ProjectsProps) {
-  const getProjectIcon = (title: string, index: number) => {
-    if (title.includes("ARK.SEC") || title.includes("Portfolio")) {
-      return <Globe className="w-5 h-5 text-cyber-accent" />;
-    }
-    if (title.includes("Keylog") || title.includes("Client-Server")) {
-      return <Terminal className="w-5 h-5 text-cyber-accent" />;
-    }
-    if (title.includes("CTF") || title.includes("Labs")) {
-      return <ShieldAlert className="w-5 h-5 text-cyber-accent" />;
-    }
-    if (title.includes("Tangoline") || title.includes("E-Commerce")) {
-      return <Trophy className="w-5 h-5 text-yellow-400" />;
-    }
-    return <FolderGit2 className="w-5 h-5 text-cyber-accent" />;
-  };
-
-  const getBadge = (title: string, index: number) => {
-    if (title.includes("ARK.SEC") || title.includes("Portfolio")) {
-      return {
-        text: "Production App",
-        color: "border-cyber-accent/40 text-cyber-accent bg-cyber-accent/10",
-      };
-    }
-    if (title.includes("Keylog") || title.includes("Client-Server")) {
-      return {
-        text: "Offensive / Systems",
-        color: "border-red-500/40 text-red-400 bg-red-500/10",
-      };
-    }
-    if (title.includes("CTF") || title.includes("Labs")) {
-      return {
-        text: "CTF & Labs",
-        color: "border-cyan-400/40 text-cyan-300 bg-cyan-400/10",
-      };
-    }
-    if (title.includes("Tangoline") || title.includes("E-Commerce")) {
-      return {
-        text: "Award Winner",
-        color: "border-yellow-400/40 text-yellow-400 bg-yellow-400/10",
-      };
-    }
-    return {
-      text: "Featured Project",
-      color: "border-cyber-accent/40 text-cyber-accent bg-cyber-accent/10",
-    };
-  };
-
+function ProjectCard({ project }: { project: Project }) {
   return (
-    <section id="projects" className="py-24 relative bg-cyber-bg border-t border-cyber-border/40">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex items-center gap-4 mb-14">
-          <div className="font-mono text-sm text-cyber-accent font-semibold">
-            03.
-          </div>
-          <h2 className="font-mono text-2xl sm:text-3xl font-bold text-white tracking-tight">
-            Featured Projects
-          </h2>
-          <div className="h-[1px] bg-cyber-border flex-grow max-w-md" />
+    <article className="card p-6 sm:p-8">
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <span className="rounded-full bg-accent-soft px-2.5 py-0.5 text-xs font-semibold text-accent-strong">
+          {project.status}
+        </span>
+        <span className="text-sm text-muted">{project.context}</span>
+      </div>
+
+      <h3 className="mt-4 font-display text-2xl font-semibold text-ink">{project.title}</h3>
+      <p className="mt-3 max-w-3xl text-base leading-relaxed text-body">{project.summary}</p>
+
+      <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_1.2fr] lg:gap-10">
+        <div>
+          <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">My role</h4>
+          <p className="mt-2 text-sm leading-relaxed text-body">{project.role}</p>
         </div>
-
-        {/* Projects Grid: 2 columns for 4 projects */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project, index) => {
-            const badge = getBadge(project.title, index);
-            return (
-              <div
-                key={project.title}
-                className="rounded-xl bg-cyber-card border border-cyber-border hover:border-cyber-accent/50 transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1.5 shadow-sm hover:shadow-[0_8px_30px_rgba(0,242,255,0.12)]"
-              >
-                <div className="p-6">
-                  {/* Card Header */}
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-cyber-surface border border-cyber-border flex items-center justify-center group-hover:border-cyber-accent/40 transition-colors">
-                      {getProjectIcon(project.title, index)}
-                    </div>
-                    <span
-                      className={`font-mono text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${badge.color}`}
-                    >
-                      {badge.text}
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="font-mono text-lg font-bold text-white mb-3 group-hover:text-cyber-accent transition-colors leading-snug">
-                    {project.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm text-cyber-muted leading-relaxed mb-4">
-                    {project.description}
-                  </p>
-
-                  {/* Outcome Highlight Box */}
-                  <div className="p-3 rounded-lg bg-cyber-surface/80 border border-cyber-border/70 mb-5">
-                    <div className="font-mono text-[11px] uppercase tracking-wider text-cyber-accent font-semibold flex items-center gap-1.5 mb-1">
-                      <Flame className="w-3 h-3 text-cyber-accent" /> Key Outcome
-                    </div>
-                    <p className="text-xs text-cyber-text/90 italic">
-                      &quot;{project.outcome}&quot;
-                    </p>
-                  </div>
-                </div>
-
-                {/* Card Footer: Tech Stack & Action Links */}
-                <div className="p-6 pt-0 mt-auto">
-                  {/* Tech Stack Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-5">
-                    {project.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-0.5 rounded bg-cyber-accent/5 border border-cyber-accent/20 text-cyber-accent font-mono text-[11px]"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Actions */}
-                  <div className="pt-3 border-t border-cyber-border/50 flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                      <a
-                        href={project.codeUrl || "https://github.com/abdurrehman7259"}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-white hover:text-cyber-accent transition-colors group/link"
-                      >
-                        <Github className="w-3.5 h-3.5 text-cyber-muted group-hover/link:text-cyber-accent transition-colors" />
-                        <span>Code</span>
-                        <ExternalLink className="w-3 h-3 opacity-60 group-hover/link:opacity-100 group-hover/link:translate-x-0.5 transition-all" />
-                      </a>
-
-                      {project.liveUrl && (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-cyber-accent hover:underline transition-colors"
-                        >
-                          <Globe className="w-3.5 h-3.5" />
-                          <span>Live</span>
-                        </a>
-                      )}
-                    </div>
-
-                    <span className="font-mono text-[11px] text-cyber-muted/60">
-                      PRJ_0{index + 1}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        <div>
+          <h4 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">What it does and how</h4>
+          <ul className="mt-2 space-y-2">
+            {project.points.map((point) => (
+              <li key={point} className="flex gap-3 text-sm leading-relaxed text-body">
+                <span className="mt-[0.55rem] h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-    </section>
+
+      <div className="mt-7 flex flex-col gap-4 border-t border-line pt-5 sm:flex-row sm:items-center sm:justify-between">
+        <ul className="flex flex-wrap gap-2" aria-label="Tech stack">
+          {project.stack.map((tech) => (
+            <li key={tech} className="chip text-xs">
+              {tech}
+            </li>
+          ))}
+        </ul>
+        <div className="flex shrink-0 items-center gap-5">
+          {project.liveUrl && (
+            <ExternalLink href={project.liveUrl}>
+              Live site <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </ExternalLink>
+          )}
+          {project.codeUrl && (
+            <ExternalLink href={project.codeUrl}>
+              <Github className="h-4 w-4" aria-hidden="true" /> Code
+            </ExternalLink>
+          )}
+          {!project.codeUrl && project.linkNote && (
+            <span className="inline-flex items-center gap-1.5 text-sm text-muted">
+              <Lock className="h-3.5 w-3.5" aria-hidden="true" /> {project.linkNote}
+            </span>
+          )}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+export function Projects({ projects, earlierWork }: { projects: Project[]; earlierWork: EarlierWork[] }) {
+  return (
+    <Section
+      id="projects"
+      eyebrow="Projects"
+      title="Real projects, built with a real process."
+      lead="What each product does, my role in it, and how the agents and checks were set up."
+    >
+      <div className="space-y-5">
+        {projects.map((project) => (
+          <ProjectCard key={project.title} project={project} />
+        ))}
+      </div>
+
+      <h3 className="mt-14 font-display text-lg font-semibold text-ink">Earlier work</h3>
+      <ul className="mt-5 grid gap-4 sm:grid-cols-2">
+        {earlierWork.map((item) => (
+          <li key={item.title} className="card flex flex-col p-5">
+            <h4 className="font-display text-base font-semibold text-ink">{item.title}</h4>
+            <p className="mt-1.5 text-sm leading-relaxed text-body">{item.description}</p>
+            <p className="mt-3 text-xs text-muted">{item.stack.join(" · ")}</p>
+            {(item.liveUrl || item.codeUrl) && (
+              <div className="mt-4 flex gap-5">
+                {item.liveUrl && (
+                  <ExternalLink href={item.liveUrl}>
+                    Live site <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  </ExternalLink>
+                )}
+                {item.codeUrl && (
+                  <ExternalLink href={item.codeUrl}>
+                    <Github className="h-4 w-4" aria-hidden="true" /> Code
+                  </ExternalLink>
+                )}
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </Section>
   );
 }

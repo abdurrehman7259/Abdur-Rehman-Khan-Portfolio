@@ -39,17 +39,17 @@ export default function AdminLogin() {
   }
 
   const input =
-    "w-full rounded-lg border border-cyber-border bg-cyber-card px-3 py-2 text-sm text-white outline-none focus:border-cyber-accent";
+    "w-full rounded-lg border border-cyber-border bg-cyber-card px-3 py-2 text-sm text-ink focus:border-cyber-accent";
 
   return (
-    <div className="cyber-grid-bg min-h-screen">
+    <div className=" min-h-screen">
       <BlogHeader />
-      <main className="mx-auto max-w-md px-4 py-16">
+      <main id="main" tabIndex={-1} className="focus:outline-none mx-auto max-w-md px-4 py-16">
         {!isFirebaseConfigured ? (
           <SetupNotice />
         ) : (
           <form onSubmit={onSubmit} className="glass-panel space-y-4 rounded-xl p-6">
-            <div className="flex items-center gap-2 text-white">
+            <div className="flex items-center gap-2 text-ink">
               <Lock className="h-5 w-5 text-cyber-accent" />
               <h1 className="text-xl font-semibold">Admin login</h1>
             </div>

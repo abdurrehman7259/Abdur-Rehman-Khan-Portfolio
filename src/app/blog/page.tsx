@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <div className="cyber-grid-bg min-h-screen">
+    <div className=" min-h-screen">
       <BlogHeader />
-      <main className="mx-auto max-w-5xl px-4 py-12 sm:px-6">
-        <h1 className="text-3xl font-bold text-white sm:text-4xl">
+      <main id="main" tabIndex={-1} className="focus:outline-none mx-auto max-w-5xl px-4 py-12 sm:px-6">
+        <h1 className="text-3xl font-bold text-ink sm:text-4xl">
           The <span className="accent-glow">Blog</span>
         </h1>
         <p className="mt-2 text-cyber-muted">Write-ups, CTF notes and security learnings.</p>

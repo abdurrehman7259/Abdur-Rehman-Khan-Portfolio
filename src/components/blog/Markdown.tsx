@@ -1,10 +1,11 @@
 "use client";
 
-import { Children, isValidElement, type ReactNode } from "react";
+import { Children, isValidElement, useState, type ReactNode } from "react";
+import { Play } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
-import "highlight.js/styles/github-dark.css";
+import "highlight.js/styles/github.css";
 
 export function getYouTubeId(url: string): string | null {
   const m = url.match(
@@ -13,17 +14,45 @@ export function getYouTubeId(url: string): string | null {
   return m ? m[1] : null;
 }
 
+/**
+ * Click-to-load: nothing is requested from YouTube (Google) until the reader
+ * chooses to play, so visitors' IP addresses are not sent there without consent.
+ */
 function YouTube({ id }: { id: string }) {
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <div className="not-prose my-6 aspect-video w-full overflow-hidden rounded-lg border border-cyber-border shadow-cyber-card">
-      <iframe
-        className="h-full w-full"
-        src={`https://www.youtube-nocookie.com/embed/${id}`}
-        title="YouTube video"
-        loading="lazy"
-        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      />
+      {loaded ? (
+        <iframe
+          className="h-full w-full"
+          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1`}
+          title="YouTube video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      ) : (
+        <div className="flex h-full w-full flex-col items-center justify-center gap-3 bg-paper p-6 text-center">
+          <button
+            type="button"
+            onClick={() => setLoaded(true)}
+            className="inline-flex h-12 items-center gap-2 rounded-lg bg-ink px-5 text-sm font-semibold text-white hover:bg-accent-strong"
+          >
+            <Play className="h-4 w-4" aria-hidden="true" /> Play video
+          </button>
+          <p className="max-w-sm text-xs text-muted">
+            Playing loads the video from YouTube (Google), which receives your IP address.{" "}
+            <a
+              href={`https://www.youtube.com/watch?v=${id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-accent"
+            >
+              Open on YouTube
+            </a>
+          </p>
+        </div>
+      )}
     </div>
   );
 }
@@ -41,13 +70,13 @@ function soleYouTubeId(children: ReactNode): string | null {
 export function Markdown({ content }: { content: string }) {
   return (
     <div
-      className="prose prose-invert max-w-none prose-headings:font-semibold prose-headings:text-white
+      className="prose max-w-none prose-headings:font-semibold prose-headings:text-ink
       prose-a:text-cyber-accent prose-a:no-underline hover:prose-a:underline
-      prose-strong:text-white prose-code:text-cyber-accent prose-code:before:content-none prose-code:after:content-none
+      prose-strong:text-ink prose-code:text-cyber-accent prose-code:before:content-none prose-code:after:content-none
       prose-pre:bg-cyber-surface prose-pre:border prose-pre:border-cyber-border
       prose-blockquote:border-cyber-accent prose-blockquote:text-cyber-muted
       prose-img:rounded-lg prose-img:border prose-img:border-cyber-border
-      prose-th:text-white prose-td:text-cyber-text"
+      prose-th:text-ink prose-td:text-cyber-text"
     >
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}

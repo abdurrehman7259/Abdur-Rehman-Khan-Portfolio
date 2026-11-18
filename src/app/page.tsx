@@ -1,59 +1,57 @@
 import { portfolioData } from "@/data/portfolio";
-import { ScrollProgress } from "@/components/ScrollProgress";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects";
+import { Process } from "@/components/Process";
 import { Education } from "@/components/Education";
+import { Writing } from "@/components/Writing";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
+const siteUrl = "https://abdur-rehman-khan-portfolio.vercel.app";
+
 export default function Home() {
+  const { basics } = portfolioData;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: portfolioData.basics.name,
-    alternateName: portfolioData.basics.shortName,
-    jobTitle: portfolioData.basics.label,
-    description: portfolioData.basics.summary,
-    url: "https://abdurrehmankhan.dev",
-    email: portfolioData.basics.email,
-    telephone: portfolioData.basics.phone,
+    name: basics.name,
+    alternateName: basics.shortName,
+    jobTitle: "Computer Science Student",
+    description: basics.summary,
+    url: siteUrl,
+    email: basics.email,
     address: {
       "@type": "PostalAddress",
-      addressLocality: portfolioData.basics.location.region,
-      addressCountry: portfolioData.basics.location.country,
+      addressLocality: basics.location.region,
+      addressCountry: basics.location.country,
     },
-    sameAs: portfolioData.basics.profiles.map((p) => p.url),
+    sameAs: basics.profiles.map((p) => p.url),
     knowsAbout: portfolioData.skills.flatMap((s) => s.items),
   };
 
   return (
     <>
-      {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      <ScrollProgress />
-      <Navbar />
-
-      <main className="min-h-screen cyber-grid-bg relative selection:bg-cyber-accent selection:text-black">
-        <Hero basics={portfolioData.basics} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <Navbar name={basics.name} />
+      <main id="main" tabIndex={-1} className="focus:outline-none">
+        <Hero basics={basics} stats={portfolioData.stats} />
         <About about={portfolioData.about} />
         <Skills skills={portfolioData.skills} />
-        <Projects projects={portfolioData.projects} />
+        <Projects projects={portfolioData.projects} earlierWork={portfolioData.earlierWork} />
+        <Process steps={portfolioData.process} />
         <Education
           education={portfolioData.education}
           certificates={portfolioData.certificates}
           languages={portfolioData.languages}
         />
-        <Contact basics={portfolioData.basics} />
+        <Writing />
+        <Contact basics={basics} />
       </main>
-
-      <Footer basics={portfolioData.basics} />
+      <Footer name={basics.name} />
     </>
   );
 }

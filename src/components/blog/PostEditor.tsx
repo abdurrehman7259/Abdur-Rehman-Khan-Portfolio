@@ -8,7 +8,7 @@ import { getPost, savePost, slugify } from "@/lib/posts";
 import { Markdown } from "./Markdown";
 
 const field =
-  "w-full rounded-lg border border-cyber-border bg-cyber-card px-3 py-2 text-sm text-white outline-none focus:border-cyber-accent";
+  "w-full rounded-lg border border-cyber-border bg-cyber-card px-3 py-2 text-sm text-ink focus:border-cyber-accent";
 
 export function PostEditor({ id }: { id: string }) {
   const router = useRouter();
@@ -93,7 +93,7 @@ export function PostEditor({ id }: { id: string }) {
         <Link href="/admin" className="inline-flex items-center gap-1 text-sm text-cyber-muted hover:text-cyber-accent">
           <ArrowLeft className="h-4 w-4" /> Dashboard
         </Link>
-        <h1 className="text-xl font-bold text-white">{isNew ? "New post" : "Edit post"}</h1>
+        <h1 className="text-xl font-bold text-ink">{isNew ? "New post" : "Edit post"}</h1>
       </div>
 
       <input className={`${field} text-lg font-semibold`} placeholder="Post title" value={title}

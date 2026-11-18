@@ -1,240 +1,225 @@
-import { PortfolioData } from "@/types/portfolio";
+import type { PortfolioData } from "@/types/portfolio";
 
 export const portfolioData: PortfolioData = {
   basics: {
     name: "Abdur Rehman Khan",
     shortName: "ARK",
-    label: "Cybersecurity Student",
-    headline: "Cybersecurity Student | Aspiring SOC Analyst",
+    role: "Computer Science Student · Agentic Software Development",
+    headline: "I build real products with AI agents, organised like a small engineering team.",
+    intro:
+      "Computer Science student in Karachi. I write the specs and user stories, then direct AI coding agents through planning, building, review, testing and security checks.",
+    current:
+      "Recent work: a NASA Space Apps game built on real solar-storm data, and Unsak, a live offline-first app for students.",
     summary:
-      "Cybersecurity student with hands-on experience in Linux environments, vulnerability assessment and university CTFs, including cryptography challenges. I have a strong coding foundation in C/C++, OOP and data structures and algorithms, and I've built projects of my own, including a client-server system in C++ and Python. I'm seeking an internship in security operations where I can apply these skills and grow within a professional team.",
-    location: {
-      country: "Pakistan",
-      countryCode: "PK",
-      region: "Karachi",
-    },
+      "Computer Science student in Karachi who builds software with AI agents: agent sub-agents, skills and hooks, a second coding agent, user stories, gated delivery pipelines, and full-stack TypeScript, React, Next.js, Node.js and PostgreSQL.",
+    focusTags: ["Multi-agent workflows", "Spec-driven delivery", "Full-stack TypeScript"],
+    location: { region: "Karachi", country: "Pakistan" },
     email: "donabdurrehman12@gmail.com",
     phone: "0310-0104905",
-    availability: "Available for Internships",
-    leadershipNote:
-      "Turning hands-on security practice — CTFs, vulnerability labs, and independent projects — into a SOC Analyst or Security Operations internship.",
+    availability: "Open to conversations about software and agentic AI.",
     profiles: [
       {
         network: "LinkedIn",
         username: "Abdur Rehman Khan",
         url: "https://www.linkedin.com/in/abdur-rehman-khan-4b4baa328/",
-        icon: "linkedin",
       },
       {
         network: "GitHub",
         username: "abdurrehman7259",
         url: "https://github.com/abdurrehman7259",
-        icon: "github",
       },
     ],
   },
+
+  stats: [
+    { value: "NASA", label: "Space Apps Challenge 2026 team entry" },
+    { value: "Live", label: "Unsak, an offline-first app for students" },
+    { value: "6", label: "Gated steps from user story to merged code" },
+  ],
+
   about: {
-    intro: [
-      "I learn security through hands-on practice. In isolated lab environments, I analyze system behaviors, identify misconfigurations and vulnerabilities, and inspect network traffic. In university CTFs, I work through cryptography and data analysis challenges to sharpen my defensive and analytical intuition.",
-      "I complement that security practice with solid software engineering foundations. Alongside building client-server networking systems in C++ and Python, I developed a responsive e-commerce platform that was awarded Best Project of the Month at Aptech. Understanding software and network protocols from the inside out enables me to better detect anomalies and assess threats.",
-      "I am excited to bring this hands-on lab experience and engineering background into a dedicated Security Operations Center (SOC) team. I am actively seeking an internship where I can contribute to threat monitoring, log and traffic analysis, and incident triage alongside experienced security analysts.",
+    heading: "Engineering discipline, applied to AI-built software.",
+    lead: "AI agents write code quickly. My job is to make that code planned, reviewed and tested.",
+    paragraphs: [
+      "I started in cybersecurity, with lab work and CTFs, and moved toward building software. Most of my work now is agentic development: AI coding agents with clear roles, files they own, written task briefs, and checks they must pass before anything merges.",
+      "I have used this setup on a NASA Space Apps hackathon game, a live student well-being app and this portfolio.",
     ],
-    strengths: [
-      "C/C++, Python, and Bash scripting",
-      "Network packet capture & traffic inspection with Wireshark and Nmap",
-      "Vulnerability assessment across simulated targets (Metasploitable)",
-      "CTF competitor — cryptography, protocol analysis, and security puzzles",
-      "Competitive programmer — Coders Cup (algorithms, rapid problem-solving)",
-    ],
-    leadershipPillars: [
+    pillars: [
       {
-        title: "Foundation",
-        description:
-          "Strong grounding in C/C++, networking protocols, and systems architecture — key foundations for analyzing endpoint telemetry and logs.",
-        icon: "code",
+        title: "Plan",
+        description: "Specs, user stories with IDs and a decision log, written before any code.",
       },
       {
-        title: "Practice",
-        description:
-          "Hands-on packet analysis with Wireshark, network scanning with Nmap, and vulnerability assessments across dedicated lab environments.",
-        icon: "shield",
+        title: "Orchestrate",
+        description: "Agents with set roles, sub-agents, skills, and the right model for each task.",
       },
       {
-        title: "Direction",
-        description:
-          "Targeting a SOC Analyst internship to contribute to real-time threat monitoring, alert triage, and security operations.",
-        icon: "target",
+        title: "Verify",
+        description: "Review, tests, accessibility and security gates on every story.",
       },
     ],
-    metrics: [
-      {
-        value: "Cybersecurity",
-        label: "Bachelor's focus",
-      },
-      {
-        value: "2",
-        label: "Certificates earned",
-      },
-      {
-        value: "Internship",
-        label: "Actively seeking (SOC Operations)",
-      },
+    bringsTitle: "What I bring to a team",
+    brings: [
+      "Multi-agent setups with coding agents (sub-agents, skills, hooks)",
+      "Spec-driven delivery: user stories, sprints, gates and a Definition of Done",
+      "Full-stack web development with TypeScript, React, Next.js, Node.js and PostgreSQL",
+      "A security mindset from lab work, CTFs and OWASP reviews",
     ],
+    quote: "AI makes code fast. Process makes it trustworthy.",
   },
+
   skills: [
     {
-      category: "Security Tools",
-      description: "Network monitoring, packet analysis, and system assessment",
+      category: "Agentic AI",
       items: [
-        "Burp Suite",
-        "Nmap",
-        "Wireshark",
-        "Kali Linux",
-        "Metasploitable",
+        "the coding agent",
+        "Sub-agents",
+        "Skills & hooks",
+        "a second coding agent",
+        "Multi-agent orchestration",
+        "Model & effort routing",
       ],
     },
     {
-      category: "Cybersecurity Concepts",
-      description: "Defensive operations, traffic mechanics, and system security",
+      category: "Process",
       items: [
-        "Log & Traffic Analysis",
-        "Vulnerability Assessment",
-        "Cryptography",
-        "Network Packet Capture (PCAP)",
-        "Active Directory Basics",
+        "User stories",
+        "Sprints & gates",
+        "Spec docs & ADRs",
+        "Definition of Done",
+        "Code review",
+        "Git & GitHub",
       ],
     },
     {
-      category: "Programming",
-      description: "Systems programming, scripting, and automation",
-      items: ["C", "C++", "Python", "Bash Scripting"],
+      category: "Frontend",
+      items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript", "PWA"],
     },
     {
-      category: "CS Fundamentals",
-      description: "Core computer science principles and environments",
-      items: [
-        "Data Structures & Algorithms",
-        "OOP (Object-Oriented Programming)",
-        "Linux Environments",
-      ],
+      category: "Backend & Data",
+      items: ["Node.js", "Express", "PostgreSQL", "Supabase", "Firebase", "Socket.io"],
     },
     {
-      category: "Web Development",
-      description: "Modern frontend architecture and responsive web standards",
-      items: [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "JavaScript",
-        "HTML/CSS",
-      ],
+      category: "Languages",
+      items: ["TypeScript", "JavaScript", "Python", "C++", "C", "SQL"],
+    },
+    {
+      category: "Security",
+      items: ["OWASP Top 10", "Burp Suite", "Nmap", "Wireshark", "Kali Linux"],
     },
   ],
+
+  process: [
+    {
+      title: "Specify",
+      description: "Product spec, requirements and user stories with IDs. Every decision goes in a log.",
+    },
+    {
+      title: "Plan",
+      description: "The tech-lead agent splits a story into parts, each with an owner and a list of files.",
+    },
+    {
+      title: "Build",
+      description: "builder agent and other builder agents work from written briefs, only in the files they own.",
+    },
+    {
+      title: "Review",
+      description: "lead agent reviews every diff. Rejected work goes back with a written fix brief.",
+    },
+    {
+      title: "Test & audit",
+      description: "Tests, accessibility, device and OWASP security checks run as blocking gates.",
+    },
+    {
+      title: "Merge",
+      description: "Only after the QA gate passes. Sensitive changes wait for my sign-off.",
+    },
+  ],
+
   projects: [
     {
-      title: "ARK.SEC — Modern Cybersecurity Portfolio",
-      description:
-        "Designed and built a high-performance, responsive cybersecurity portfolio and interactive terminal showcase featuring real-time skill search, active scrollspy navigation, and custom cyber aesthetics.",
-      outcome:
-        "Architected with Next.js 15 App Router, TypeScript, and Tailwind CSS with sub-second page loads and zero layout shift.",
-      stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-      codeUrl: "https://github.com/abdurrehman7259",
-      liveUrl: "https://github.com/abdurrehman7259",
-    },
-    {
-      title: "Client-Server Network & Endpoint Communication System",
-      description:
-        "Engineered a multi-tier client-server system emphasizing low-level socket communication, systems programming in C++ and Python, and network/endpoint traffic mechanics. Implemented bidirectional data exchange over TCP sockets, scripted process automation, and integrated network discovery to analyze host traffic and connectivity.",
-      outcome:
-        "Demonstrated practical mastery of socket communication protocols, endpoint execution mechanics, and network traffic flows between client and server architectures.",
-      stack: ["C++", "Python", "Sockets", "Nmap", "Network Protocols"],
-      codeUrl: "https://github.com/abdurrehman7259",
-    },
-    {
-      title: "Security Labs & CTF Practice",
-      description:
-        "Hands-on vulnerability assessment, network traffic inspection, and protocol analysis using Burp Suite, Nmap, Wireshark, and Kali Linux against targets like Metasploitable, alongside university CTF competitions covering cryptography and secure communication challenges.",
-      outcome:
-        "Built practical experience in traffic analysis, vulnerability assessment, and cryptographic principles in controlled lab environments.",
-      stack: [
-        "Burp Suite",
-        "Nmap",
-        "Wireshark",
-        "Kali Linux",
-        "Metasploitable",
+      title: "Moon Base Cadets",
+      context: "NASA Space Apps Challenge 2026",
+      status: "Hackathon",
+      summary:
+        "A browser game for children aged 7–12. Players run a Moon or Mars base for 10 days while real solar flares and storms from NASA's DONKI records hit it.",
+      role: "Product owner and game designer in a three-person team. the coding agent was tech lead and frontend engineer; builder agent was backend engineer.",
+      points: [
+        "Written file ownership per agent, task briefs and result files for every backend job",
+        "Four time-boxed gates across the hackathon weekend, tracked on a task board",
+        "Every science fact links to a NASA source; game rules are labelled as game rules",
+        "No accounts, cookies or tracking, because the players are children",
       ],
-      codeUrl: "https://github.com/abdurrehman7259",
+      stack: ["React", "TypeScript", "Vite", "Zod", "NASA DONKI API", "Serverless functions"],
+      linkNote: "Private repository",
     },
     {
-      title: "Tangoline — E-Commerce Website",
-      description:
-        "Developed a responsive e-commerce website for computer equipment and gaming products, with product comparison and detailed specifications.",
-      outcome:
-        "Won Best Project of the Month at Aptech and qualified for Aptech Vision.",
+      title: "Unsak Digital Companion",
+      context: "Student digital well-being app",
+      status: "Live",
+      summary:
+        "A mobile-first app that helps students build better phone habits: a 30-day challenge, a bedtime wind-down, a scam-message check and people to talk to.",
+      role: "Started as a Design Thinking course project with user interviews and journey maps. lead agent wrote the module contract and builder agent built the modules in parallel.",
+      points: [
+        "Sign-in with Google or a 6-digit email code",
+        "Personal data stays on the device, with export in Settings",
+        "Works offline and installs to the home screen",
+      ],
+      stack: ["JavaScript", "PWA", "Service worker", "Supabase Auth"],
+      liveUrl: "https://unsak.vercel.app",
+      linkNote: "Private repository",
+    },
+  ],
+
+  earlierWork: [
+    {
+      title: "This portfolio",
+      description: "Personal site with an admin-only blog.",
+      stack: ["Next.js", "TypeScript", "Tailwind CSS", "Firebase"],
+      liveUrl: "https://abdur-rehman-khan-portfolio.vercel.app",
+      codeUrl: "https://github.com/abdurrehman7259/Abdur-Rehman-Khan-Portfolio",
+    },
+    {
+      title: "Tangoline",
+      description: "E-commerce site for computer and gaming products. Best Project of the Month at Aptech.",
       stack: ["HTML", "CSS", "JavaScript", "jQuery"],
-      codeUrl: "https://github.com/abdurrehman7259",
-    },
-  ],
-  certificates: [
-    {
-      name: "Cybersecurity & Ethical Hacking",
-      issuer: "NED Academy",
     },
     {
-      name: "Web Development",
-      issuer: "Aptech Learning",
+      title: "Client-server system",
+      description: "TCP socket communication between a C++ client and a Python server.",
+      stack: ["C++", "Python", "Sockets"],
+    },
+    {
+      title: "Security labs and CTFs",
+      description: "Vulnerability assessment on practice targets and university CTF cryptography challenges.",
+      stack: ["Burp Suite", "Nmap", "Wireshark", "Kali Linux"],
     },
   ],
+
   education: [
     {
+      degree: "Bachelor of Science (BS), Computer Science",
       institution: "GU-Tech",
-      area: "Computer Science",
-      studyType: "Bachelor of Science (BS) — Continuing",
-      period: "2026 — Present",
-      detailsLabel: "Focus Areas",
-      details: [
-        "Transferred here after completing two years of a Cybersecurity degree at FAST-NUCES",
-        "Cybersecurity (intended specialization)",
-        "Computer Networks",
-        "Operating Systems",
-      ],
-      startDate: "2026-09-01",
+      period: "2026 – Present",
+      detailsLabel: "Focus areas",
+      details: ["Computer Networks", "Operating Systems", "Cybersecurity"],
     },
     {
-      institution: "FAST-NUCES",
-      area: "Cybersecurity",
-      studyType: "Bachelor of Science (BS) — First two years completed",
-      period: "2023 — 2025",
-      detailsLabel: "Coursework Focus",
-      details: [
-        "Cybersecurity Fundamentals",
-        "Data Structures & Algorithms",
-        "Object-Oriented Programming",
-        "Networking",
-      ],
-      startDate: "2023-08-01",
-      endDate: "2025-09-01",
-    },
-    {
+      degree: "FSc, Pre-Engineering",
       institution: "Govt. Delhi College",
-      area: "Pre-Engineering",
-      studyType: "FSc",
-      period: "2021 — 2023",
+      period: "2021 – 2023",
       detailsLabel: "Level",
-      details: ["Higher Secondary / Intermediate Pre-Engineering"],
-      startDate: "2021-01-01",
-      endDate: "2023-01-01",
+      details: ["Higher Secondary"],
     },
   ],
+
+  certificates: [
+    { name: "Cybersecurity & Ethical Hacking", issuer: "NED Academy" },
+    { name: "Web Development", issuer: "Aptech Learning" },
+  ],
+
   languages: [
-    {
-      language: "English",
-      fluency: "Fluent (Professional Working)",
-    },
-    {
-      language: "Urdu",
-      fluency: "Native",
-    },
+    { language: "English", fluency: "Professional working" },
+    { language: "Urdu", fluency: "Native" },
   ],
 };

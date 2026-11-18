@@ -31,7 +31,7 @@ function Dashboard() {
   return (
     <>
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-2xl font-bold text-white">Dashboard</h1>
+        <h1 className="text-2xl font-bold text-ink">Dashboard</h1>
         <div className="flex gap-3">
           <Link href="/admin/editor/new" className="inline-flex items-center gap-1.5 rounded-lg bg-cyber-accent px-4 py-2 font-mono text-sm font-semibold text-cyber-bg hover:bg-cyber-accentHover">
             <Plus className="h-4 w-4" /> New post
@@ -51,7 +51,7 @@ function Dashboard() {
           {posts.map((p) => (
             <li key={p.slug} className="glass-panel flex flex-wrap items-center justify-between gap-3 rounded-xl p-4">
               <div className="min-w-0">
-                <p className="truncate font-semibold text-white">{p.title}</p>
+                <p className="truncate font-semibold text-ink">{p.title}</p>
                 <p className="mt-1 flex items-center gap-3 font-mono text-xs text-cyber-muted">
                   <span className={p.published ? "text-cyber-green" : "text-cyber-yellow"}>
                     {p.published ? "PUBLISHED" : "DRAFT"}
@@ -81,9 +81,9 @@ function Dashboard() {
 
 export default function AdminPage() {
   return (
-    <div className="cyber-grid-bg min-h-screen">
+    <div className=" min-h-screen">
       <BlogHeader />
-      <main className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+      <main id="main" tabIndex={-1} className="focus:outline-none mx-auto max-w-4xl px-4 py-12 sm:px-6">
         <AdminGuard>
           <Dashboard />
         </AdminGuard>
