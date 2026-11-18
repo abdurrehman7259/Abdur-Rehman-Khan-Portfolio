@@ -203,6 +203,7 @@ export const portfolioData = {
         "Ran the build as a gated pipeline: file ownership per agent, written task briefs, four time-boxed gates, a usability sprint from playtests and a security audit with every finding fixed",
       ],
       stack: ["Next.js", "React", "JavaScript", "Zod", "NASA DONKI API", "Serverless functions"],
+      liveUrl: "https://junior-astronaut-mission-trainer-eight.vercel.app",
       linkNote: "Private repository",
     },
     {
