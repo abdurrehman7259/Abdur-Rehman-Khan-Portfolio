@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
-import { BlogHeader } from "@/components/blog/BlogHeader";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { portfolioData } from "@/data/portfolio";
 import { PostView } from "@/components/blog/PostView";
 import { fetchPublishedPost, fetchPublishedPosts } from "@/lib/posts-public";
 
@@ -28,11 +30,12 @@ export default async function PostPage({ params }) {
   if (!post) notFound();
 
   return (
-    <div className="min-h-screen">
-      <BlogHeader />
-      <main id="main" tabIndex={-1} className="focus:outline-none mx-auto max-w-3xl px-4 py-12 sm:px-6">
+    <>
+      <Navbar name={portfolioData.basics.name} />
+      <main id="main" tabIndex={-1} className="mx-auto max-w-3xl px-4 py-12 focus:outline-none sm:px-6 sm:py-16">
         <PostView post={post} />
       </main>
-    </div>
+      <Footer name={portfolioData.basics.name} />
+    </>
   );
 }

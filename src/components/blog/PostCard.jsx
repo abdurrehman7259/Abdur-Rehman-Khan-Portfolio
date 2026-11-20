@@ -22,25 +22,25 @@ export function PostCard({ post }) {
       ) : (
         <div
           aria-hidden="true"
-          className="flex aspect-video w-full items-center justify-center bg-paper font-mono text-3xl text-accent/40"
+          className="flex aspect-video w-full items-center justify-center bg-paper font-display text-3xl font-semibold text-accent/40"
         >
           &lt;/&gt;
         </div>
       )}
-      <div className="flex flex-1 flex-col gap-3 p-5">
+      <div className="flex flex-1 flex-col gap-3 p-6">
         <div className="flex flex-wrap gap-2">
           {post.tags.slice(0, 3).map((t) => (
             <span
               key={t}
-              className="rounded border border-accent/30 bg-accent-soft px-2 py-0.5 font-mono text-xs text-accent-strong"
+              className="rounded-full bg-accent-soft px-2.5 py-0.5 text-xs font-semibold text-accent-strong"
             >
               {t}
             </span>
           ))}
         </div>
-        <h2 className="text-lg font-semibold text-ink transition group-hover:text-accent">{post.title}</h2>
-        <p className="line-clamp-3 flex-1 text-sm text-muted">{post.excerpt}</p>
-        <div className="flex items-center gap-3 font-mono text-xs text-muted">
+        <h2 className="font-display text-lg font-semibold leading-snug text-ink transition-colors group-hover:text-accent">{post.title}</h2>
+        <p className="line-clamp-3 flex-1 text-sm leading-relaxed text-muted">{post.excerpt}</p>
+        <div className="flex items-center gap-3 border-t border-line pt-4 text-xs text-muted">
           <span>{formatPostDate(post.createdAt)}</span>
           <span className="inline-flex items-center gap-1">
             <Clock className="h-3 w-3" aria-hidden="true" /> {post.readingTime} min read

@@ -136,11 +136,11 @@ export const portfolioData = {
     },
     {
       category: "Frontend",
-      items: ["React", "Next.js", "JavaScript", "Tailwind CSS", "HTML & CSS", "PWA"],
+      items: ["React", "Next.js", "JavaScript", "Tailwind CSS", "HTML & CSS"],
     },
     {
       category: "Backend & Data",
-      items: ["Node.js", "Express", "PostgreSQL", "Supabase", "Firebase", "Socket.io"],
+      items: ["Node.js", "Express", "PostgreSQL", "Supabase", "Firebase"],
     },
     {
       category: "Languages",
@@ -204,7 +204,7 @@ export const portfolioData = {
       ],
       stack: ["Next.js", "React", "JavaScript", "Zod", "NASA DONKI API", "Serverless functions"],
       liveUrl: "https://junior-astronaut-mission-trainer-eight.vercel.app",
-      linkNote: "Private repository",
+      codeUrl: "https://github.com/abdurrehman7259/Junior-Astronaut-Mission-Trainer-",
     },
     {
       title: "Unsak Digital Companion",
@@ -219,7 +219,7 @@ export const portfolioData = {
         "Privacy and terms page written from what the code really does, with automated tests that fail if the two drift apart",
         "Security headers, a strict content policy and 170+ automated tests; works offline and installs to the home screen",
       ],
-      stack: ["JavaScript", "PWA", "Service worker", "Supabase Auth"],
+      stack: ["JavaScript", "Service worker", "Supabase Auth"],
       liveUrl: "https://unsak.vercel.app",
       codeUrl: "https://github.com/abdurrehman7259/Unsak",
     },

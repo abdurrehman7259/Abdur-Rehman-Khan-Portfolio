@@ -1,7 +1,9 @@
 import { BlogList } from "@/components/blog/BlogList";
-import { BlogHeader } from "@/components/blog/BlogHeader";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import { SetupNotice } from "@/components/blog/SetupNotice";
 import { fetchPublishedPosts, isBlogConfigured } from "@/lib/posts-public";
+import { portfolioData } from "@/data/portfolio";
 
 export const metadata = {
   title: "Blog | Abdur Rehman Khan",
@@ -21,11 +23,16 @@ export default async function BlogPage() {
   }
 
   return (
-    <div className="min-h-screen">
-      <BlogHeader />
-      <main id="main" tabIndex={-1} className="focus:outline-none mx-auto max-w-5xl px-4 py-12 sm:px-6">
-        <h1 className="text-3xl font-bold text-ink sm:text-4xl">The Blog</h1>
-        <p className="mt-2 text-muted">
+    <>
+      <Navbar name={portfolioData.basics.name} />
+      <main
+        id="main"
+        tabIndex={-1}
+        className="mx-auto min-h-[60vh] max-w-page px-4 py-12 focus:outline-none sm:px-6 sm:py-16 lg:px-8"
+      >
+        <p className="eyebrow">Blog</p>
+        <h1 className="section-title mt-3 max-w-3xl">Writing</h1>
+        <p className="section-lead">
           How I build software end to end: requirements, user stories, agentic workflows, pipelines and security.
         </p>
         {!isBlogConfigured ? (
@@ -40,6 +47,7 @@ export default async function BlogPage() {
           <BlogList posts={posts} />
         )}
       </main>
-    </div>
+      <Footer name={portfolioData.basics.name} />
+    </>
   );
 }

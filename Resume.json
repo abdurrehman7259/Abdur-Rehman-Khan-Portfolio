@@ -80,8 +80,7 @@
         "Next.js",
         "JavaScript",
         "Tailwind CSS",
-        "HTML & CSS",
-        "PWA"
+        "HTML & CSS"
       ]
     },
     {
@@ -91,8 +90,7 @@
         "Express",
         "PostgreSQL",
         "Supabase",
-        "Firebase",
-        "Socket.io"
+        "Firebase"
       ]
     },
     {
@@ -166,7 +164,7 @@
         "Serverless functions"
       ],
       "liveUrl": "https://junior-astronaut-mission-trainer-eight.vercel.app",
-      "linkNote": "Private repository"
+      "codeUrl": "https://github.com/abdurrehman7259/Junior-Astronaut-Mission-Trainer-"
     },
     {
       "title": "Unsak Digital Companion",
@@ -182,7 +180,6 @@
       ],
       "stack": [
         "JavaScript",
-        "PWA",
         "Service worker",
         "Supabase Auth"
       ],
